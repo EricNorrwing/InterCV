@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "UduLX3BT2bd+R6mNPF/swGQKajl4NPS01VKDb5dOrLw=",
+  "Source": "InterCV.Server",
+  "BasePath": "_content/InterCV.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\ericn\\RiderProjects\\InterCV\\InterCV\\intercv.client\\intercv.client.esproj",
+      "Version": 2,
+      "Source": "intercv.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

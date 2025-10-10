@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\InterCV.Server.props" />
+</Project>

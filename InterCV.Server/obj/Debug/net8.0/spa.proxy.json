@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:60965",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\ericn\\RiderProjects\\InterCV\\InterCV\\InterCV.Server\\..\\intercv.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
