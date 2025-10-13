@@ -36,3 +36,4 @@ C:\Users\ericn\RiderProjects\InterCV\InterCV\InterCV.Server\obj\Debug\net8.0\ref
 C:\Users\ericn\RiderProjects\InterCV\InterCV\InterCV.Server\obj\Debug\net8.0\InterCV.Server.pdb
 C:\Users\ericn\RiderProjects\InterCV\InterCV\InterCV.Server\obj\Debug\net8.0\InterCV.Server.genruntimeconfig.cache
 C:\Users\ericn\RiderProjects\InterCV\InterCV\InterCV.Server\obj\Debug\net8.0\ref\InterCV.Server.dll
+C:\Users\ericn\RiderProjects\InterCV\InterCV\InterCV.Server\obj\Debug\net8.0\InterCV.Server.sourcelink.json
