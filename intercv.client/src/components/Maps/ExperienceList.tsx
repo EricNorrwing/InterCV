@@ -1,15 +1,12 @@
-import './App.css';
-import experiences from "./assets/temporaryExpList.ts";
-import type {ExperienceModel} from "./models/ExperienceModel.ts";
+// ExperienceList.tsx
+import experiences from './temporaryExpList';
+import { ExperienceModel } from './ExperienceModel';
 
-
-function App() {
-    
+export default function ExperienceList() {
     return (
         <div>
-            <h1>Experiences!</h1>
             {experiences.map((exp: ExperienceModel, index: number) => (
-                <div key={index} >
+                <div key={index} style={{ marginBottom: '1rem' }}>
                     <h3>{exp.Summary} at {exp.Workplace}</h3>
                     <p><strong>{exp.StartDate} - {exp.EndDate}</strong></p>
                     <p>{exp.Description}</p>
@@ -17,7 +14,4 @@ function App() {
             ))}
         </div>
     );
-    
 }
-
-export default App;
