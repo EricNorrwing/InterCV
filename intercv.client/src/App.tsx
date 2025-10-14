@@ -7,7 +7,7 @@ function App() {
     
     return (
         <div>
-            <LandingPage></LandingPage>
+            <LandingPage/>
             <h1>Experiences!</h1>
             <ExperienceList/>
         </div>
