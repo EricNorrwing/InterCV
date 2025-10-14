@@ -1,6 +1,6 @@
 // ExperienceList.tsx
-import experiences from './temporaryExpList';
-import { ExperienceModel } from './ExperienceModel';
+import experiences from '../../assets/temporaryExpList';
+import type { ExperienceModel } from '../../models/ExperienceModel.ts';
 
 export default function ExperienceList() {
     return (
