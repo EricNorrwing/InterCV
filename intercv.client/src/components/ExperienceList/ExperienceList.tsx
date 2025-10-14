@@ -6,7 +6,7 @@ export default function ExperienceList() {
         <div>
             {experiences.map((exp: ExperienceModel, index: number) => (
                 <div key={index}>
-                    <h3>{exp.Summary} at {exp.Workplace}</h3>
+                    <h3>{exp.Title} at {exp.Workplace}</h3>
                     <p><strong>{exp.StartDate} - {exp.EndDate}</strong></p>
                     <p>{exp.Description}</p>
                 </div>
