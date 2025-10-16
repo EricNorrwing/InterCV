@@ -5,7 +5,7 @@ export function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <a className="navbar-brand" href="#">InterCV</a>
                 <button
                     className="navbar-toggler"
                     type="button"

@@ -1,8 +1,7 @@
 import './App.css';
-import LandingPage from "./pages/landing/LandingPage.tsx";
-import ExperienceList from "./components/ExperienceList/ExperienceList.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Header} from "./pages/landing/header/Header.tsx";
+import CVLayout from "./layouts/CVLayout/CVLayout.tsx";
 
 
 function App() {
@@ -10,12 +9,14 @@ function App() {
     return (
         <div>
             <Header/>
-            <LandingPage/>
-            <h1>Experiences!</h1>
-            <ExperienceList/>
+            <CVLayout/>
         </div>
     );
     
 }
 
 export default App;
+
+//<LandingPage/>
+//             <h1>Experiences!</h1>
+//             <ExperienceList/>

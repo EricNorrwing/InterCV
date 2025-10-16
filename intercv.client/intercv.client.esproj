@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\components\Maps\" />
+    <Folder Include="src\pages\CVDisplayPage\" />
     <Folder Include="src\pages\landing\split\" />
   </ItemGroup>
 </Project>
