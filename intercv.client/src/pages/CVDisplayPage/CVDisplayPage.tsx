@@ -2,6 +2,7 @@ import ExperienceList from "../../components/experienceList/ExperienceList.tsx";
 import './temp.css'
 import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictureCard.tsx";
 
+//Remove temp.css ofc
 export function CVDisplayPage() {
     return (
         <div className="container">
@@ -10,7 +11,7 @@ export function CVDisplayPage() {
                     <h1>Eric Norrwing <br/>  Systems Engineer </h1>
                 </div>
                 <div className="col-sm-4">
-                        <ProfilePictureCard/>
+                    <ProfilePictureCard/>
                 </div>
             </div>
             <div className="row">
