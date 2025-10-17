@@ -9,7 +9,6 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\components\Maps\" />
-    <Folder Include="src\pages\landing\split\" />
+    <Folder Include="src\layouts\" />
   </ItemGroup>
 </Project>

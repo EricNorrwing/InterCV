@@ -1,7 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Header} from "./pages/landing/header/Header.tsx";
+
 import {CVDisplayPage} from "./pages/CVDisplayPage/CVDisplayPage.tsx";
+import {Header} from "./components/header/Header.tsx";
 
 
 function App() {
@@ -16,7 +17,3 @@ function App() {
 }
 
 export default App;
-
-//<LandingPage/>
-//             <h1>Experiences!</h1>
-//             <ExperienceList/>

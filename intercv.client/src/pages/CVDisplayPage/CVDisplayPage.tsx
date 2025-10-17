@@ -1,6 +1,6 @@
-import ExperienceList from "../../components/ExperienceList/ExperienceList.tsx";
+import ExperienceList from "../../components/experienceList/ExperienceList.tsx";
 import './temp.css'
-import AnonPic from '../../assets/Anon pic.png'
+import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictureCard.tsx";
 
 export function CVDisplayPage() {
     return (
@@ -9,8 +9,8 @@ export function CVDisplayPage() {
                 <div className="col-sm-8">
                     <h1>Eric Norrwing <br/>  Systems Engineer </h1>
                 </div>
-                <div className="col-sm-4" id={"pictureFrame"}>
-                    <img src={AnonPic} alt="Anonymous" className="img-fluid" />
+                <div className="col-sm-4">
+                        <ProfilePictureCard/>
                 </div>
             </div>
             <div className="row">
