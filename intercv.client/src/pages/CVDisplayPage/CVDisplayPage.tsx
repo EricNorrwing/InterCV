@@ -6,12 +6,13 @@ import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictur
 export function CVDisplayPage() {
     return (
         <div className="container">
-            <div className="row">
+            <div className="row" >
                 <div className="col-sm-8">
-                    <h1>Eric Norrwing <br/>  Systems Engineer </h1>
+                    <h1>Eric Norrwing <br/> </h1>
+                    <h3>  Systems Engineer </h3>
                 </div>
-                <div className="col-sm-4">
-                    <ProfilePictureCard/>
+                <div className="col-sm-4 d-flex justify-content-center align-items-center">
+                        <ProfilePictureCard/>
                 </div>
             </div>
             <div className="row">
