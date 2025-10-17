@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Header} from "./pages/landing/header/Header.tsx";
-import CVLayout from "./layouts/CVLayout/CVLayout.tsx";
+import {CVDisplayPage} from "./pages/CVDisplayPage/CVDisplayPage.tsx";
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     return (
         <div>
             <Header/>
-            <CVLayout/>
+            <CVDisplayPage/>
         </div>
     );
     
