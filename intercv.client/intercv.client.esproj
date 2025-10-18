@@ -10,6 +10,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\layouts\" />
-    <Folder Include="src\routes\en\" />
   </ItemGroup>
 </Project>

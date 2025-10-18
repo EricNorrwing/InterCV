@@ -10,7 +10,7 @@ export function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <Link to="/" className="navbar-brand">
+                <Link to="/en/home" className="navbar-brand">
                     InterCV
                 </Link>
                 <button
@@ -29,7 +29,7 @@ export function Header() {
                     
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to="/" className="navbar-brand">
+                            <Link to="/en/home" className="navbar-brand">
                                 Home
                             </Link>
                         </li>

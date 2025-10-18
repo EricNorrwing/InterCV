@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as EnHomeRouteImport } from './routes/en/home'
 import { Route as EnCvSampleCvRouteImport } from './routes/en/cv/sampleCv'
 
+const EnHomeRoute = EnHomeRouteImport.update({
+  id: '/en/home',
+  path: '/en/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnCvSampleCvRoute = EnCvSampleCvRouteImport.update({
   id: '/en/cv/sampleCv',
   path: '/en/cv/sampleCv',
@@ -18,29 +24,40 @@ const EnCvSampleCvRoute = EnCvSampleCvRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/en/home': typeof EnHomeRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRoutesByTo {
+  '/en/home': typeof EnHomeRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/en/home': typeof EnHomeRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/en/cv/sampleCv'
+  fullPaths: '/en/home' | '/en/cv/sampleCv'
   fileRoutesByTo: FileRoutesByTo
-  to: '/en/cv/sampleCv'
-  id: '__root__' | '/en/cv/sampleCv'
+  to: '/en/home' | '/en/cv/sampleCv'
+  id: '__root__' | '/en/home' | '/en/cv/sampleCv'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  EnHomeRoute: typeof EnHomeRoute
   EnCvSampleCvRoute: typeof EnCvSampleCvRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/en/home': {
+      id: '/en/home'
+      path: '/en/home'
+      fullPath: '/en/home'
+      preLoaderRoute: typeof EnHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/cv/sampleCv': {
       id: '/en/cv/sampleCv'
       path: '/en/cv/sampleCv'
@@ -52,6 +69,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  EnHomeRoute: EnHomeRoute,
   EnCvSampleCvRoute: EnCvSampleCvRoute,
 }
 export const routeTree = rootRouteImport
