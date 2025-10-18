@@ -1,7 +1,7 @@
 export default function ExperienceDetailsAchievementComponent () {
     return (
         <div>
-            //do the things
+            Achievement stuff
         </div>
     )
 }

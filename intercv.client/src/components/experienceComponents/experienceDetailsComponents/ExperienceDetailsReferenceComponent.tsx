@@ -1,7 +1,7 @@
 export default function ExperienceDetailsReferenceComponent () {
     return (
         <div>
-            //do the things
+            References
         </div>
     )
 }

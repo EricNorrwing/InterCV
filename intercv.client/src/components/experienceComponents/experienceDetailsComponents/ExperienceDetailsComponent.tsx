@@ -1,9 +1,12 @@
+import ExperienceDetailsReferenceComponent from "./ExperienceDetailsReferenceComponent.tsx";
+import ExperienceDetailsAchievementComponent from "./ExperienceDetailsAchievementComponent.tsx";
+
 export default function ExperienceDetailsComponent () {
     return (
         <div>
             //summary
-            //Achievements
-            //references
+            <ExperienceDetailsAchievementComponent/>
+            <ExperienceDetailsReferenceComponent/>
         </div>
     )
 }

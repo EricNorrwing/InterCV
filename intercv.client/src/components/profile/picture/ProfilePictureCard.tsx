@@ -1,6 +1,6 @@
 import AnonPic from "../../../assets/Anon pic.png";
 
-//TODO This component needs to better adapted to various picture sizes and what not. 
+
 export function ProfilePictureCard() {
     return (
         <div className="d-flex justify-content-center">
