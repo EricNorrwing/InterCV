@@ -1,7 +1,7 @@
 import experiences from '../../assets/temporaryExpList';
 import type { Experience } from '../../models/CVModel.ts';
 
-export default function ExperienceList() {
+export default function ExperienceComponent() {
     return (
         <div>
             {experiences.map((exp: Experience, index: number) => (

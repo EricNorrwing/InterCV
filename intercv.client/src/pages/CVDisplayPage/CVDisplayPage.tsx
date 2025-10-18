@@ -1,6 +1,8 @@
-import ExperienceList from "../../components/experienceList/ExperienceList.tsx";
+import ExperienceComponent from "../../components/experienceComponents/ExperienceComponent.tsx";
 import './temp.css'
 import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictureCard.tsx";
+import ExperienceDetailsComponent
+    from "../../components/experienceComponents/experienceDetailsComponents/ExperienceDetailsComponent.tsx";
 
 
 
@@ -19,7 +21,7 @@ export function CVDisplayPage() {
             </div>
             <div className="row">
                 <div className="col">
-                    <ExperienceList/>
+                    <ExperienceComponent/>
                 </div>
                 <div className="col">
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -27,6 +29,7 @@ export function CVDisplayPage() {
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum."
+                    <ExperienceDetailsComponent/>
                 </div>
             </div>
         </div>
