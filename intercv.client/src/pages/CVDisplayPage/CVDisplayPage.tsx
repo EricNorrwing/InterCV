@@ -2,8 +2,13 @@ import ExperienceList from "../../components/experienceList/ExperienceList.tsx";
 import './temp.css'
 import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictureCard.tsx";
 
+interface CVDisplayPageProps {
+    lang: string
+    cvId: string
+}
+
 //Remove temp.css ofc
-export function CVDisplayPage() {
+export function CVDisplayPage({ lang, cvId }: CVDisplayPageProps) {
     return (
         <div className="container">
             <div className="row" >

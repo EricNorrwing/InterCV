@@ -1,11 +1,18 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+import { Link } from '@tanstack/react-router'
+
+const lang = navigator.language;
+
+
 export function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">InterCV</a>
+                <Link to="/" className="navbar-brand">
+                    InterCV
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -22,7 +29,9 @@ export function Header() {
                     
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <Link to="/" className="navbar-brand">
+                                Home
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Link</a>
@@ -58,10 +67,16 @@ export function Header() {
                             placeholder="Search"
                             aria-label="Search"
                         />
-                        <button className="btn btn-outline-success" type="submit">
-                            Search
-                        </button>
+
+                        <Link
+                            to="/en/cv/sampleCv"
+                            className="btn btn-outline-success"
+                        >
+                            View sample CV
+                        </Link>
                     </form>
+                    
+                    <div className="ms-3 btn btn-outline-success">{lang}</div>
                 </div>
             </div>
         </nav>

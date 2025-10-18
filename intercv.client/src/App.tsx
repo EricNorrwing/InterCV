@@ -1,18 +1,22 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {createRouter, RouterProvider} from "@tanstack/react-router"
+import {routeTree} from "./routeTree.gen.ts";
 
-import {CVDisplayPage} from "./pages/CVDisplayPage/CVDisplayPage.tsx";
-import {Header} from "./components/header/Header.tsx";
+const router = createRouter({ routeTree });
 
-
+declare module '@tanstack/react-router' {
+    interface Register {
+        router: typeof router;
+    }
+}
 function App() {
     
     return (
-        <div>
-            <Header/>
-            <CVDisplayPage/>
-        </div>
-    );
+        <>
+        <RouterProvider router={router}/>
+        </>
+    )
     
 }
 

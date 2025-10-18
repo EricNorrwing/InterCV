@@ -16,6 +16,9 @@
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^19.1.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^19.1.1</PackageJsonDependenciesReactDom>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.36.0</PackageJsonDevdependenciesEslintJs>
+    <PackageJsonDevdependenciesTanstackEslintPluginRouter Condition="$(PackageJsonDevdependenciesTanstackEslintPluginRouter) == ''">^1.133.3</PackageJsonDevdependenciesTanstackEslintPluginRouter>
+    <PackageJsonDevdependenciesTanstackRouterDevtools Condition="$(PackageJsonDevdependenciesTanstackRouterDevtools) == ''">^1.133.13</PackageJsonDevdependenciesTanstackRouterDevtools>
+    <PackageJsonDevdependenciesTanstackRouterVitePlugin Condition="$(PackageJsonDevdependenciesTanstackRouterVitePlugin) == ''">^1.133.13</PackageJsonDevdependenciesTanstackRouterVitePlugin>
     <PackageJsonDevdependenciesTypesNode Condition="$(PackageJsonDevdependenciesTypesNode) == ''">^24.6.0</PackageJsonDevdependenciesTypesNode>
     <PackageJsonDevdependenciesTypesReact Condition="$(PackageJsonDevdependenciesTypesReact) == ''">^19.1.16</PackageJsonDevdependenciesTypesReact>
     <PackageJsonDevdependenciesTypesReactDom Condition="$(PackageJsonDevdependenciesTypesReactDom) == ''">^19.1.9</PackageJsonDevdependenciesTypesReactDom>

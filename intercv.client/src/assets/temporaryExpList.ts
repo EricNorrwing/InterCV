@@ -1,12 +1,12 @@
-﻿import type {ExperienceModel} from '../models/ExperienceModel.ts';
+﻿import type {Experience} from '../models/CVModel.ts';
 
-const experiences: ExperienceModel[] = [
+const experiences: Experience[] = [
     {
         Workplace: "OpenAI",
         Title: "Systems Engineer",
         StartDate: "Jan 2023",
         EndDate: "Present",
-        Description: "Working on next-gen AI models.",
+        Details: "Working on next-gen AI models.",
         Summary: "AI Researcher"
     },
     {
@@ -14,7 +14,7 @@ const experiences: ExperienceModel[] = [
         Title: "Systems Engineer",
         StartDate: "Jun 2020",
         EndDate: "Dec 2022",
-        Description: "Developed scalable cloud services.",
+        Details: "Developed scalable cloud services.",
         Summary: "Software Engineer"
     }
 ];
