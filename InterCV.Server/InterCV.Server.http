@@ -1,6 +1,6 @@
 @InterCV.Server_HostAddress = http://localhost:5172
 
-GET {{InterCV.Server_HostAddress}}/weatherforecast/
+GET {{InterCV.Server_HostAddress}}/GetSampleCv/
 Accept: application/json
 
 ###

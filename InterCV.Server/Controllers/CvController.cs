@@ -7,10 +7,11 @@ namespace InterCV.Server.Controllers;
 [Route("[controller]")]
 public class CvController(SampleCv sampleCv)
 {
+    
+    //TODO just look at it it needs typing and then you can remove this. Also async
     [HttpGet(Name = "GetSampleCv")]
-    public IActionResult Get()
+    public object GetSampleCv()
     {
-        var result = sampleCv.GetSampleCv();
-        return result; 
+        return sampleCv.GetSampleCv().Value!;
     }
 }
