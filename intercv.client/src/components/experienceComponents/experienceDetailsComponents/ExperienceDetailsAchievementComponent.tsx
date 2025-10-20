@@ -1,8 +1,15 @@
-export default function ExperienceDetailsAchievementComponent () {
+interface AchievementProps {
+    achievements: string[]
+}
+export default function ExperienceDetailsAchievementComponent({ achievements }: AchievementProps) {
     return (
         <div>
-            Achievement stuff
+            <ul>
+                {achievements.map((achievement, index) => (
+                    <li key={index}>{achievement}</li>
+                ))}
+            </ul>
         </div>
-    )
+    );
 }
 

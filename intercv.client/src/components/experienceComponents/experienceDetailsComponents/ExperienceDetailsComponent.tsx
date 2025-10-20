@@ -1,12 +1,16 @@
 import ExperienceDetailsReferenceComponent from "./ExperienceDetailsReferenceComponent.tsx";
 import ExperienceDetailsAchievementComponent from "./ExperienceDetailsAchievementComponent.tsx";
+import type {ExperienceDetails} from "../../../models/CvModel.ts";
 
-export default function ExperienceDetailsComponent () {
+interface ExperienceDetailsProps {
+    details: ExperienceDetails;
+}
+export default function ExperienceDetailsComponent ({details}: ExperienceDetailsProps) {
     return (
         <div>
-            //summary
-            <ExperienceDetailsAchievementComponent/>
-            <ExperienceDetailsReferenceComponent/>
+            <p>{details.descriptionLong}</p>
+            <ExperienceDetailsAchievementComponent achievements={details.achievements} />
+            <ExperienceDetailsReferenceComponent  references={details.references}/>
         </div>
     )
 }

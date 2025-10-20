@@ -6,6 +6,7 @@ import ExperienceDetailsComponent
     from "../../components/experienceComponents/experienceDetailsComponents/ExperienceDetailsComponent.tsx";
 import type {CvModel} from "../../models/CvModel.ts";
 import CvHeaderComponent from "../../components/generalCvComponents/CvHeaderComponent.tsx";
+import {useState} from "react";
 
 
 interface CvDisplayPageProps {
@@ -13,7 +14,10 @@ interface CvDisplayPageProps {
 }
 
 //TODO Remove temp.css ofc
-export function CVDisplayPage({ cv }: CvDisplayPageProps) {
+export function CvDisplayPage({ cv }: CvDisplayPageProps) {
+
+    const [selectedExperienceIndex, setSelectedExperienceIndex] = useState(0);
+    
     return (
         
         <div className="container">
@@ -27,10 +31,14 @@ export function CVDisplayPage({ cv }: CvDisplayPageProps) {
             </div>
             <div className="row">
                 <div className="col">
-                    <ExperienceComponent experience={cv.experiences}/>
+                    <ExperienceComponent
+                        experiences={cv.experiences}
+                        selectedIndex={selectedExperienceIndex}
+                        onSelect={(index: number) => setSelectedExperienceIndex(index)}
+                    />
                 </div>
                 <div className="col">
-                    <ExperienceDetailsComponent/>
+                    <ExperienceDetailsComponent details={cv.experiences[selectedExperienceIndex].details} />
                 </div>
             </div>
         </div>

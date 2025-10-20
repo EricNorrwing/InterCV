@@ -51,7 +51,8 @@ public class SampleCv
                         {
                             new ExperienceReference
                             {
-                                Name = "Bob Example",
+                                FirstName = "Bob",
+                                LastName = "Smith",
                                 Title = "Engineering Manager",
                                 LinkedInUrl = "https://linkedin.com/in/bobexample",
                                 Email = "bob@example.com",
@@ -63,7 +64,8 @@ public class SampleCv
                             },
                             new ExperienceReference
                             {
-                                Name = "Jane Lorem",
+                                FirstName = "Jane",
+                                LastName = "Doe",
                                 Title = "Tech Lead",
                                 LinkedInUrl = "https://linkedin.com/in/janelorem",
                                 Email = "jane@example.org",
@@ -97,7 +99,8 @@ public class SampleCv
                         {
                             new ExperienceReference
                             {
-                                Name = "Ref A",
+                                FirstName = "James",
+                                LastName = "Bond",
                                 Title = "Project Manager",
                                 LinkedInUrl = "https://linkedin.com/in/refa",
                                 Email = "refa@example.com",

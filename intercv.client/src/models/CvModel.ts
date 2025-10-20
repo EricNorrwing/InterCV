@@ -24,7 +24,8 @@ export interface ExperienceDetails {
 }
 
 export interface ExperienceReference {
-    name: string,
+    firstName: string,
+    lastName: string,
     title: string,
     linkedInUrl: string,
     email: string,
