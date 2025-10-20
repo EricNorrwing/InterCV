@@ -1,10 +1,10 @@
 ﻿import type {UserData, UserProfile} from "./UserModel.ts";
-import type {InterCVUrlModel} from "./URLModel.ts";
+import type {InterCVUrlModel} from "./UrlModel.ts";
 
-export interface CVModel {
+export interface CvModel {
     experiences: Experience[],
     user: UserProfile,
-    userData: UserData[],
+    userData?: UserData[],
 }
 
 export interface Experience {
@@ -12,14 +12,15 @@ export interface Experience {
     title: string,
     startDate: Date,
     endDate: Date,
-    details: ExperienceDetails,
-    descriptionShort: string;
+    descriptionShort: string,
+    details: ExperienceDetails;
+    
 }
 
 export interface ExperienceDetails {
     descriptionLong: string,
     achievements: string[],
-    references: ExperienceReference[]
+    references?: ExperienceReference[]
 }
 
 export interface ExperienceReference {

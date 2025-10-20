@@ -1,7 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CVDisplayPage } from '../../../pages/CVDisplayPage/CVDisplayPage'
 import {useQuery} from "@tanstack/react-query";
-import {getTest} from "../../../clients/cvClient.ts";
+import {getCv} from "../../../clients/cvClient.ts";
+import type {CvModel} from "../../../models/CvModel.ts";
 
 
 
@@ -11,15 +12,14 @@ export const Route = createFileRoute('/en/cv/sampleCv')({
 })
 
 function RouteComponent() {
-    
-    const { data, isLoading, error } = useQuery<String>({
-        queryKey: ['cv', 'sampleCv'],
-        queryFn: () => getTest('/cv/test'), 
-    })
 
-    //TODO fix, try test for now
+    const { data, isLoading, error } = useQuery<CvModel>({
+        queryKey: ['cv', 'sampleCv'],
+        queryFn: () => getCv('/cv/sampleCv'),
+    })
+    
     if (isLoading) return <p>Loading CV...</p>
     if (error) return <p>Error loading CV: {(error as Error).message}</p>
     
-    return <CVDisplayPage lang="English" cvId="sampleCv" cv={data!} />
+    return <CVDisplayPage cv={data!} />
 }

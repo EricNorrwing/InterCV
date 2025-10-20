@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\CvModels\References\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
   </ItemGroup>
