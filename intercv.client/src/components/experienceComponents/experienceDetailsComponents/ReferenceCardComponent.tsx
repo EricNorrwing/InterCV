@@ -1,21 +1,31 @@
 import type { ExperienceReference } from "../../../models/CvModel.ts";
 import {ProfilePictureCard} from "../../profile/picture/ProfilePictureCard.tsx";
+import "./ReferenceCardComponent.css";
+
+import { MdOutlineEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 interface ReferenceProps {
     reference: ExperienceReference;
 }
 
-export default function ReferenceCardComponent ({reference}: ReferenceProps) {
+export default function ReferenceCardComponent({ reference }: ReferenceProps) {
     return (
-        <div className="d-flex justify-content-center">
-            <div className="card h-100 w-100">
-                {/*TODO Fix url */}
-                <ProfilePictureCard pictureUrl={"testurl"} />
-                <h5>{reference.firstName}</h5><br/>
-                <h5>{reference.lastName}</h5><br/>
-                <h5>{reference.email}</h5><br/>
-                <h5>{reference.phone}</h5><br/>
-                <h5>{reference.linkedInUrl}</h5><br/>
+        <div className="card mb-3 reference-card">
+            <div className="row g-0">
+                <div className="col-md-4 d-flex align-items-start card p-2">
+                    <ProfilePictureCard pictureUrl={"testurl"} />
+                </div>
+                <div className="col-md-8">
+                    <div className="card-body p-2">
+                        <h5 className="card-title mb-1">{reference.firstName} {reference.lastName}</h5>
+                        <h6 className="mb-1">{reference.title}</h6>
+                        <p className="card-text mb-1"><MdOutlineEmail /> {reference.email}</p>
+                        <p className="card-text mb-1"><FaPhone /> {reference.phone}</p>
+                        <p className="card-text mb-0"><FaLinkedin /> {reference.linkedInUrl}</p>
+                    </div>
+                </div>
             </div>
         </div>
     )

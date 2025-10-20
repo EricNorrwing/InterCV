@@ -10,7 +10,7 @@ import type {CvModel} from "../../../models/CvModel.ts";
 export const Route = createFileRoute('/en/cv/sampleCv')({
   component: RouteComponent,
 })
-
+//TODO fix error handling
 function RouteComponent() {
 
     const { data, isLoading, error } = useQuery<CvModel>({

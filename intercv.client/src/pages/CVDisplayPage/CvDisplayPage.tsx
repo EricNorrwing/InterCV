@@ -17,7 +17,6 @@ interface CvDisplayPageProps {
 export function CvDisplayPage({ cv }: CvDisplayPageProps) {
 
     const [selectedExperienceIndex, setSelectedExperienceIndex] = useState(0);
-    
     return (
         
         <div className="container">

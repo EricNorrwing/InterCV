@@ -1,7 +1,7 @@
 export interface LinkedInUrlModel {
-    linkedInUrl: string;
+    url: string;
 }
 
 export interface InterCVUrlModel {
-    interCvUrl: string;
+    url: string;
 }
