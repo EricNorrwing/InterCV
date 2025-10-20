@@ -10,6 +10,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //TODO adding sample CV remove later
 builder.Services.AddSingleton<SampleCv>();
+
+//TODO add cors fix later 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontendDev", policy =>
+    {
+        policy
+            .WithOrigins("https://localhost:60965") 
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -21,6 +33,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//TODO earlier temp cors setup
+app.UseCors("AllowFrontendDev");
 
 app.UseHttpsRedirection();
 
