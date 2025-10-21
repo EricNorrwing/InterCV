@@ -7,7 +7,10 @@ import ExperienceDetailsComponent
 import type {CvModel} from "../../models/CvModel.ts";
 import CvHeaderComponent from "../../components/generalCvComponents/CvHeaderComponent.tsx";
 import {useState} from "react";
-import EducationDetailsComponent from "../../components/educationComponents/EducationDetailsComponent.tsx";
+import FormalEducationDetailsComponent from "../../components/educationComponents/FormalEducationDetailsComponent.tsx";
+import InformalEducationDetailsComponent
+    from "../../components/educationComponents/InformalEducationDetailsComponent.tsx";
+import AboutMeComponent from "../../components/AboutMeComponent.tsx";
 
 
 interface CvDisplayPageProps {
@@ -68,15 +71,15 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                         <div className="row">
                             <div className="col">
                                 <h3> Formal Education </h3>
-                                <EducationDetailsComponent educationHistory={cv.education} />
+                                <FormalEducationDetailsComponent educationsHistory={cv.educations} />
                             </div>
                             <div className="col">
                                 <h3> Certifications and courses </h3>
-                               
+                                <InformalEducationDetailsComponent educationsHistory={cv.educations} />
                             </div>
                         </div>
                     </div>
-                    <div className="tab-pane fade" id="about-me" role="tabpanel" aria-labelledby="about-me-tab">About me</div>
+                    <div className="tab-pane fade" id="about-me" role="tabpanel" aria-labelledby="about-me-tab"><AboutMeComponent aboutMe={cv.aboutMe}/></div>
         </div>
         
     </div>

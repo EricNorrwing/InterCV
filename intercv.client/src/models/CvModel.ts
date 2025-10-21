@@ -3,7 +3,7 @@ import type {InterCVUrlModel} from "./UrlModel.ts";
 
 export interface CvModel {
     experiences: Experience[],
-    education: Education[],
+    educations: Education[],
     aboutMe: string,
     user: UserProfile,
     userData?: UserData[],
