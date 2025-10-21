@@ -34,12 +34,15 @@ export interface ExperienceReference {
     interCVProfile: InterCVUrlModel
 }
 export interface Education {
-    education: string,
+    formal:boolean,
+    educationName: string,
     title?: string,
+    provider: string,
     startDate: Date,
     endDate: Date,
     description: string,
     verificationUrl?: string
 }
+
 
 

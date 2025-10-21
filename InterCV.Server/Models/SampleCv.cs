@@ -1,4 +1,5 @@
 using InterCV.Server.Models.CvModels;
+using InterCV.Server.Models.CvModels.Educations;
 using InterCV.Server.Models.CvModels.Experiences;
 using InterCV.Server.Models.UrlModels;
 using InterCV.Server.Models.Users;
@@ -10,8 +11,6 @@ public class SampleCv
 
     public static CvModel GetSampleCv()
     {
-
-
         return new CvModel
         {
             User = new UserProfile
@@ -36,7 +35,7 @@ public class SampleCv
                     StartDate = new DateTime(2025, 1, 10),
                     EndDate = new DateTime(2025, 6, 15),
                     DescriptionShort =
-                        "Junior developer internship, focusing on the internal test platform Molgan aswell as cooperative work on the internal KYC/ODD stabilization project",
+                        "Junior developer internship, focusing on the internal test platform Molgan as well as cooperative work on the internal KYC/ODD stabilization project",
                     Details = new ExperienceDetails
                     {
                         DescriptionLong =
@@ -53,7 +52,7 @@ public class SampleCv
                             """,
                         Achievements =
                         [
-                            "Contributed to the continuus work to stabilize the KYC/ODD stabilization project",
+                            "Contributed to the continuous work to stabilize the KYC/ODD stabilization project",
                             "Worked closely with the team and the systems Anti-Money-Laundering integration to improve the understanding of the platform",
                             "Worked to improve the internal testdata platform Molgan who had numerous bugs and hastily produced UI"
                         ],
@@ -146,7 +145,49 @@ public class SampleCv
                     }
                 }
             ],
-            UserData = []
+            UserData = [],
+            Educations =
+            [
+                new Education
+                {
+                    Formal = true,
+                    EducationName = "Java and Fullstack Developer",
+                    Title = "Java / Fullstack Developer Program",
+                    Provider = "Stockholms Tekniska Institut",
+                    StartDate = new DateTime(2023, 1, 1),
+                    EndDate = new DateTime(2025, 1, 1),
+                    Description = "A higher vocational education focused on backend and fullstack development using Java, Spring Boot, and modern frontend frameworks.",
+                    VerificationUrl = "https://www.sti.se/utbildningar/javautvecklare-fullstack/"
+                },
+                new Education
+                {
+                    Formal = true,
+                    EducationName = "Business Intelligence",
+                    Title = "Business Intelligence Analyst Program",
+                    Provider = "Nackademin",
+                    StartDate = new DateTime(2020, 1, 1),
+                    EndDate = new DateTime(2021, 1, 1),
+                    Description = "Practical education in data analysis, ETL processes, data warehousing, and visualization tools like Power BI and SQL Server.",
+                    VerificationUrl = "https://nackademin.se/utbildningar/business-intelligence-analytiker/"
+                },
+                new Education
+                {
+                    Formal = false,
+                    EducationName = "Truck License",
+                    Title = "Truckförare (Forklift Certification)",
+                    Provider = "TYA / Truckutbildarna",
+                    StartDate = new DateTime(2014, 1, 1),
+                    EndDate = new DateTime(2014, 1, 1),
+                    Description = "Completed certified forklift driver training (A1–A4, B1–B4) — non-formal professional certification.",
+                    VerificationUrl = null
+                }
+            ],
+            AboutMe = 
+            """
+            I’m a junior fullstack developer with hands-on experience in both Java and .NET ecosystems, passionate about building clean, maintainable, and user-focused applications. I’ve worked across the stack — from backend services and REST APIs to modern React frontends — and enjoy bridging technical structure with thoughtful design.
+            
+            As the developer behind InterCV, I’m focused on creating tools that streamline professional presentation and help developers showcase their skills effectively. I’m continuously learning and exploring best practices in software architecture, cloud deployment, and UI performance.]
+            """
         };
     }
 }
