@@ -8,7 +8,7 @@ interface ExperienceDetailsProps {
 export default function ExperienceDetailsComponent ({details}: ExperienceDetailsProps) {
     return (
         <div>
-            <p>{details.descriptionLong}</p>
+            <p className={"preserve-whitespace"}>{details.descriptionLong}</p>
             <ExperienceDetailsAchievementComponent achievements={details.achievements} />
             <ExperienceDetailsReferenceComponent  references={details.references}/>
         </div>

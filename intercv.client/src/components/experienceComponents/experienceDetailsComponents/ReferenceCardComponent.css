@@ -1,17 +1,17 @@
-/* Wrapper adjustments */
+
 #ExperienceDetailsReferenceComponentWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    /* Neutralize Bootstrap row spacing */
+    
     margin-left: 0;
     margin-right: 0;
     padding: 1rem;
 }
 
-/* Make each card fit nicely within the centered layout */
+
 .reference-card {
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -21,7 +21,7 @@
     background-color: #fff;
     overflow: hidden;
     width: 100%;
-    max-width: 600px; /* gives the centered look */
+    max-width: 600px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,10 +29,9 @@
 
 .reference-card:hover {
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    transform: translateY(-2px);
 }
 
-/* Tighten card internals */
+
 .reference-card .row {
     width: 100%;
     margin: 0;

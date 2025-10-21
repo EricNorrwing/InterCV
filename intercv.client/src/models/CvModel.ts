@@ -3,6 +3,8 @@ import type {InterCVUrlModel} from "./UrlModel.ts";
 
 export interface CvModel {
     experiences: Experience[],
+    education: Education[],
+    aboutMe: string,
     user: UserProfile,
     userData?: UserData[],
 }
@@ -14,7 +16,6 @@ export interface Experience {
     endDate: Date,
     descriptionShort: string,
     details: ExperienceDetails;
-    
 }
 
 export interface ExperienceDetails {
@@ -32,6 +33,13 @@ export interface ExperienceReference {
     phone: string,
     interCVProfile: InterCVUrlModel
 }
-
+export interface Education {
+    education: string,
+    title?: string,
+    startDate: Date,
+    endDate: Date,
+    description: string,
+    verificationUrl?: string
+}
 
 

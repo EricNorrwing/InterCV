@@ -10,11 +10,11 @@ interface UserProps {
 export default function CvHeaderComponent({ user }: UserProps) {
     return (
         <div>
-            <h1>{user.firstName} {user.lastName}</h1>
-            <h5>{user.preferredProfessionalTitle}</h5>
+            <h1> {user.firstName} {user.lastName}</h1>
+            <h5> {user.preferredProfessionalTitle}</h5>
             <br/>
             <h5>Contact info</h5>
-            <h6><MdOutlineEmail />{user.email}</h6>
+            <h6><MdOutlineEmail /> {user.email}</h6>
             <h6><FaPhone /> {user.phone}</h6>
             <h6><FaLinkedin /> {user.linkedInUrl.url}</h6>
         </div>

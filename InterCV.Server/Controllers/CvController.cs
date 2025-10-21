@@ -13,7 +13,7 @@ public class CvController(SampleCv sampleCv): Controller
     [HttpGet("sampleCv")]
     public Task<ActionResult<CvModel>> GetSampleCv()
     {
-        var cv = sampleCv.GetSampleCv();
+        var cv = SampleCv.GetSampleCv();
         
         return Task.FromResult<ActionResult<CvModel>>(Ok(cv));
     }

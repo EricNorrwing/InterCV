@@ -5,3 +5,7 @@ export interface LinkedInUrlModel {
 export interface InterCVUrlModel {
     url: string;
 }
+
+export interface educationUrlModel {
+    url: string;
+}

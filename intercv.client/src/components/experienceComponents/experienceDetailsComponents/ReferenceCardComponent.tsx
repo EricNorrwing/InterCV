@@ -14,7 +14,7 @@ export default function ReferenceCardComponent({ reference }: ReferenceProps) {
     return (
         <div className="card mb-3 reference-card">
             <div className="row g-0">
-                <div className="col-md-4 d-flex align-items-start card p-2">
+                <div className="col-md-4 d-flex align-items-start card p-2 border-0">
                     <ProfilePictureCard pictureUrl={"testurl"} />
                 </div>
                 <div className="col-md-8">

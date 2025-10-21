@@ -4,9 +4,6 @@ import {useQuery} from "@tanstack/react-query";
 import {getCv} from "../../../clients/cvClient.ts";
 import type {CvModel} from "../../../models/CvModel.ts";
 
-
-
-
 export const Route = createFileRoute('/en/cv/sampleCv')({
   component: RouteComponent,
 })
