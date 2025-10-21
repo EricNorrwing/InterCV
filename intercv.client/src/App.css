@@ -4,7 +4,10 @@
     overflow: auto;
     margin: 0;
     padding: 0;
+    background: #4e5355;
+    color: white;
 }
 .preserve-whitespace {
     white-space: pre-line;
 }
+

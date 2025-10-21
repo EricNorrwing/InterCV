@@ -1,4 +1,6 @@
 import type {Education} from "../../models/CvModel.ts";
+import {Link} from "@tanstack/react-router";
+import { IoIosAttach } from "react-icons/io";
 
 interface FormalEducationProps {
     educationsHistory: Education[];
@@ -15,7 +17,11 @@ export default function FormalEducationDetailsComponent({ educationsHistory }: F
                         <p className="text-muted">
                             {new Date(edu.startDate).toLocaleDateString()} - {new Date(edu.endDate).toLocaleDateString()}
                         </p>
-                        {edu.description && <p className="preserve-whitespace">{edu.description}</p>}
+                            {edu.description && <p className="preserve-whitespace">{edu.description}
+                        </p>}
+                        {edu.verificationUrl ? 
+                        <Link to={edu.verificationUrl}> <IoIosAttach /> Link to Proof</Link>
+                        : null}
                     </div>
                 ) : null
             )}

@@ -17,7 +17,7 @@ export default function ExperienceComponent({ experiences, selectedIndex, onSele
                         onClick={() => onSelect(index)}
                         style={{
                             cursor: "pointer",
-                            backgroundColor: isSelected ? "#f0f0f0" : "transparent",
+                            backgroundColor: isSelected ? "#000000" : "transparent",
                             padding: "0.5rem",
                             borderRadius: "4px",
                             marginBottom: "0.5rem"
