@@ -47,8 +47,6 @@ public class SampleCv
 
                             Additionally, contributed to the Know Your Customer (KYC) platform and related microservices, collaborating closely with developers and QA engineers. 
                             The primary focus during this period was resolving numerous performance issues and bugs that were impacting the legacy monolithic system.
-
-                            I also participated in preparatory work to modernize the dependency injection strategy, which was outdated, as part of a broader architectural initiative to enhance system stability and responsiveness.
                             """,
                         Achievements =
                         [

@@ -1,9 +1,10 @@
 ﻿import { Link } from "@tanstack/react-router";
+import ICVLogo from "../../assets/ICVLogo.png"
 
 export default function LandingPage() {
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center text-center vh-100 p-4">
-            
+        <div className="d-flex flex-column justify-content-center align-items-center text-center vh-100 p-4" style={{ background: "darkgray" }}>
+            <img src={ICVLogo} alt={ICVLogo} style={{ height: "300px"}} />
             <h1 className="display-4 fw-bold mb-4">
                 Welcome to InterCV!
             </h1>
