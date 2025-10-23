@@ -1,5 +1,3 @@
-
-
 import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictureCard.tsx";
 import ExperienceComponent from "../../components/experienceComponents/ExperienceComponent.tsx";
 import ExperienceDetailsComponent
@@ -12,6 +10,7 @@ import InformalEducationDetailsComponent
     from "../../components/educationComponents/InformalEducationDetailsComponent.tsx";
 import AboutMeComponent from "../../components/AboutMeComponent.tsx";
 import ExperienceInstructionComponent from "../../components/experienceComponents/ExperienceInstructionComponent.tsx";
+import "../../components/experienceComponents/Experience.css"
 
 
 interface CvDisplayPageProps {
@@ -92,9 +91,11 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                             {selectedExperienceIndex === null ? (
                                 <ExperienceInstructionComponent />
                             ) : (
-                                <ExperienceDetailsComponent
-                                    details={cv.experiences[selectedExperienceIndex].details}
-                                />
+                                <div key={selectedExperienceIndex} className="fade-in">
+                                    <ExperienceDetailsComponent
+                                        details={cv.experiences[selectedExperienceIndex].details}
+                                    />
+                                </div>
                             )}
                         </div>
                     </div>
