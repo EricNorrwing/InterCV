@@ -1,36 +1,25 @@
-import type {Experience} from '../../models/CvModel.ts';
+
+import ExperienceSelectItemComponent from "./ExperienceSelectItemComponent.tsx";
+import type {Experience} from "../../models/CvModel.ts";
 
 interface ExperienceComponentProps {
     experiences: Experience[];
     selectedIndex: number;
     onSelect: (idx: number) => void;
 }
-//TODO FIX OH MY GOD 
+
+
 export default function ExperienceComponent({ experiences, selectedIndex, onSelect }: ExperienceComponentProps) {
     return (
         <div>
-            {experiences.map((exp, index) => {
-                const isSelected = selectedIndex === index;
-                return (
-                    <div
-                        key={index}
-                        onClick={() => onSelect(index)}
-                        style={{
-                            cursor: "pointer",
-                            backgroundColor: isSelected ? "#000000" : "transparent",
-                            padding: "0.5rem",
-                            borderRadius: "4px",
-                            marginBottom: "0.5rem"
-                        }}
-                    >
-                        <h4>{exp.title} at {exp.workplace}</h4>
-                        <p>
-                            {new Date(exp.startDate).toLocaleDateString()} - {new Date(exp.endDate).toLocaleDateString()}
-                        </p>
-                        <p>{exp.descriptionShort}</p>
-                    </div>
-                );
-            })}
+            {experiences.map((exp, index) => (
+                <ExperienceSelectItemComponent
+                    key={index}
+                    exp={exp}
+                    isSelected={selectedIndex === index}
+                    onClick={() => onSelect(index)}
+                />
+            ))}
         </div>
     );
 }
