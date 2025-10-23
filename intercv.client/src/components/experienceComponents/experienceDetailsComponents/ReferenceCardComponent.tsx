@@ -1,10 +1,10 @@
 import type { ExperienceReference } from "../../../models/CvModel.ts";
-import {ProfilePictureCard} from "../../profile/picture/ProfilePictureCard.tsx";
 import "./ReferenceCardComponent.css";
 
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import {ReferenceProfilePicture} from "./ReferenceProfilePicture.tsx";
 
 interface ReferenceProps {
     reference: ExperienceReference;
@@ -15,7 +15,7 @@ export default function ReferenceCardComponent({ reference }: ReferenceProps) {
         <div className="card mb-3 reference-card">
             <div className="row g-0">
                 <div className="col-md-4 d-flex align-items-start card p-2 border-0">
-                    <ProfilePictureCard pictureUrl={"testurl"} />
+                    <ReferenceProfilePicture pictureUrl={reference.linkedInProfilePictureUrl} />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body p-2">

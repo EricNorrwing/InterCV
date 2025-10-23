@@ -15,7 +15,7 @@ public class SampleCv
         {
             User = new UserProfile
             {
-                ProfilePictureUrl = "",
+                ProfilePictureUrl = "https://media.licdn.com/dms/image/v2/D4D03AQFfRbC92CU57g/profile-displayphoto-crop_800_800/B4DZnnTCroIcAI-/0/1760522153281?e=1762992000&v=beta&t=hI-UGvnp4HRCNPkFbdUZWv0uZLAXhfBkw-ef2RFYRP0",
                 PreferredProfessionalTitle = ".Net/Java Fullstack Developer",
                 FirstName = "Eric",
                 LastName = "Norrwing",
@@ -64,6 +64,7 @@ public class SampleCv
                                 LastName = "Carlsson",
                                 Title = "Software Engineer specialized in Springboot",
                                 LinkedInUrl = "https://www.linkedin.com/in/mcsn/",
+                                LinkedInProfilePictureUrl = "https://media.licdn.com/dms/image/v2/C4E03AQHJLJN497QYIQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517411205988?e=1762992000&v=beta&t=8rjZbwChqNf9KL5n3D1tx5jnsnH1qdAqXug_ryD3FH0",
                                 Email = "Mattias.Carlsson@Lffinans.com",
                                 Phone = "+1-555-123-4567",
                                 InterCvProfile = new InterCvUrl

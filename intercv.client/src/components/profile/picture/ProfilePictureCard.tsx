@@ -1,18 +1,18 @@
 import AnonPic from "../../../assets/Anon pic.png";
+import "./ProfilePicture.css"
 
 interface ProfilePictureUrlProps {
-    pictureUrl: string;
+    pictureUrl?: string;
 }
 
-export function ProfilePictureCard(pictureUrl: ProfilePictureUrlProps) {
+export function ProfilePictureCard({ pictureUrl }: ProfilePictureUrlProps) {
     return (
         <div className="d-flex justify-content-center">
-            <div className="card h-100 w-100">
-                {/*TODO fix this so that it accepts picture or uses anon if not */}
+            <div className="card profile-card">
                 <img
-                    src={pictureUrl ? AnonPic : AnonPic}
+                    src={pictureUrl ? pictureUrl : AnonPic}
                     alt="Profile"
-                    className="card-img-top h-100 w-100 object-fit-cover"
+                    className="profile-card-img"
                 />
             </div>
         </div>

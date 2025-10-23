@@ -29,6 +29,7 @@ export interface ExperienceReference {
     lastName: string,
     title: string,
     linkedInUrl: string,
+    linkedInProfilePictureUrl: string,
     email: string,
     phone: string,
     interCVProfile: InterCVUrlModel
