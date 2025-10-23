@@ -184,7 +184,7 @@ public class SampleCv
             ],
             AboutMe = 
             """
-            I’m a junior fullstack developer with hands-on experience in both Java and .NET ecosystems, passionate about building clean, maintainable, and user-focused applications. I’ve worked across the stack — from backend services and REST APIs to modern React frontends — and enjoy bridging technical structure with thoughtful design.
+            I’m a junior fullstack developer with hands-on experience in both Java and .NET ecosystems, passionate about building clean, maintainable, and user-focused applications. I’ve worked across the stack from backend services and REST APIs to modern React frontends and enjoy bridging technical structure with thoughtful design.
             
             As the developer behind InterCV, I’m focused on creating tools that streamline professional presentation and help developers showcase their skills effectively. I’m continuously learning and exploring best practices in software architecture, cloud deployment, and UI performance.
             """

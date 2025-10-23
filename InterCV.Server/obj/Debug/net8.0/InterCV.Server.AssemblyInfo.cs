@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InterCV.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+139bb8599e2a480c6ded961ebfdf12ea99c73ee7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb1f324b2702fc1eee8c38184d58d5065599cc84")]
 [assembly: System.Reflection.AssemblyProductAttribute("InterCV.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InterCV.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
