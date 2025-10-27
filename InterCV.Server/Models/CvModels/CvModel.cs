@@ -9,6 +9,7 @@ public class CvModel
     public required List<Experience> Experiences { get; set; }
     public required List<Education> Educations { get; set; }
     public required string AboutMe { get; set; }
+    public List<string>? Tags { get; set; }
     public required UserProfile User { get; set; }
     public List<UserData>? UserData { get; set; }
 }

@@ -26,10 +26,12 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
     return (
         <div className="container-fluid" id="cv-display-page-container">
             <div className="row">
-                <div className="col-sm-8">
-                    <CvHeaderComponent user={cv.user} />
+                <div className="col-sm-4">
+                    <CvHeaderComponent user={cv.user} tags={cv.tags} />
                 </div>
-                <div className="col-sm-4 d-flex justify-content-center align-items-center">
+                <div className="col-sm-2">
+                </div>
+                <div className="col-sm-6 d-flex justify-content-center align-items-center">
                     <ProfilePictureCard pictureUrl={cv.user.profilePictureUrl} />
                 </div>
             </div>
@@ -83,6 +85,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                 <div className="tab-pane fade show active" id="work-experience" role="tabpanel" aria-labelledby="Work-tab">
                     <div className="row">
                         <div className="col">
+                            <h3>Work Experience: </h3>
                             <ExperienceComponent
                                 experiences={cv.experiences}
                                 selectedIndex={selectedExperienceIndex ?? -1}
@@ -91,6 +94,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                             
                         </div>
                         <div className="col">
+                            <h3>Experience Details: </h3>
                             {selectedExperienceIndex === null ? (
                                 <ExperienceInstructionComponent />
                             ) : (
@@ -102,6 +106,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                             )}
                         </div>
                         <div className="col-md-5">
+                            <h3>References by Workplace: </h3>
                             {selectedExperienceIndex !== null ? (
                                 <ExperienceDetailsReferenceComponent  references={cv.experiences[selectedExperienceIndex].details.references}/>
                             ): null}

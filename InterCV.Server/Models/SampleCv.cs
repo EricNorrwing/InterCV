@@ -16,7 +16,7 @@ public class SampleCv
             User = new UserProfile
             {
                 ProfilePictureUrl = "https://media.licdn.com/dms/image/v2/D4D03AQFfRbC92CU57g/profile-displayphoto-crop_800_800/B4DZnnTCroIcAI-/0/1760522153281?e=1762992000&v=beta&t=hI-UGvnp4HRCNPkFbdUZWv0uZLAXhfBkw-ef2RFYRP0",
-                PreferredProfessionalTitle = ".Net/Java Fullstack Developer",
+                PreferredProfessionalTitle = "Systems Engineer",
                 FirstName = "Eric",
                 LastName = "Norrwing",
                 Email = "Eric.norrwing@gmail.com",
@@ -26,6 +26,18 @@ public class SampleCv
                     Url = "https://www.linkedin.com/in/eric-norrwing-60342a127/"
                 }
             },
+            Tags = 
+            [
+                "C#/.NET",
+                "Java/Springboot",
+                "Automated Testing",
+                "React JS/TS",
+                "DevOps",
+                "Docker",
+                "Agile (Scrum)",
+                "SQL",
+                "No-SQL DB's"
+            ],
             Experiences =
             [
                 new Experience

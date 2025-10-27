@@ -9,6 +9,7 @@ import {ReferenceProfilePicture} from "./ReferenceProfilePicture.tsx";
 interface ReferenceProps {
     reference: ExperienceReference;
 }
+//TODO This component  needs a function for automated mail, this is not a priority task.
 
 export default function ReferenceCardComponent({ reference }: ReferenceProps) {
     return (
@@ -21,8 +22,14 @@ export default function ReferenceCardComponent({ reference }: ReferenceProps) {
                     <div className="card-body p-2">
                         <h5 className="card-title mb-1">{reference.firstName} {reference.lastName}</h5>
                         <h6 className="mb-1">{reference.title}</h6>
-                        <p className="card-text mb-1"><MdOutlineEmail /> {reference.email}</p>
-                        <p className="card-text mb-1"><FaPhone /> {reference.phone}</p>
+                        <p className="card-text mb-1">
+                            <MdOutlineEmail /> <a href={`mailto:${reference.email}`}>{reference.email}</a>
+                        </p>
+                        <p className="card-text mb-1">
+                            <FaPhone /> <a href="#" onClick={(e) => { e.preventDefault(); /* TODO Make an automated mail to request a phonecall */ }}>
+                            Request direct contact
+                            </a>
+                        </p>
                         <p className="card-text mb-0"><FaLinkedin /> {reference.linkedInUrl}</p>
                     </div>
                 </div>

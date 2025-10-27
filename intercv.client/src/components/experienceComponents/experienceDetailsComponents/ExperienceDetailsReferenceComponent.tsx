@@ -10,7 +10,6 @@ export default function ExperienceDetailsReferenceComponent({ references }: Refe
     return (
         
         <div className="container">
-            <h1>References</h1>
             <div className="row" id="ExperienceDetailsReferenceComponentWrapper">
                 {references ? (
                     references.map((reference, index) => (
