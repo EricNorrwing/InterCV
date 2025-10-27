@@ -11,6 +11,9 @@ import InformalEducationDetailsComponent
 import AboutMeComponent from "../../components/AboutMeComponent.tsx";
 import ExperienceInstructionComponent from "../../components/experienceComponents/ExperienceInstructionComponent.tsx";
 import "../../components/experienceComponents/Experience.css"
+import ExperienceDetailsReferenceComponent
+    from "../../components/experienceComponents/experienceDetailsComponents/ExperienceDetailsReferenceComponent.tsx";
+import "./CvDisplayPage.css";
 
 
 interface CvDisplayPageProps {
@@ -21,7 +24,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
     const [selectedExperienceIndex, setSelectedExperienceIndex] = useState<number | null>(null);
 
     return (
-        <div className="container">
+        <div className="container-fluid" id="cv-display-page-container">
             <div className="row">
                 <div className="col-sm-8">
                     <CvHeaderComponent user={cv.user} />
@@ -98,12 +101,17 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                                 </div>
                             )}
                         </div>
+                        <div className="col-md-5">
+                            {selectedExperienceIndex !== null ? (
+                                <ExperienceDetailsReferenceComponent  references={cv.experiences[selectedExperienceIndex].details.references}/>
+                            ): null}
+                        </div>
                     </div>
                 </div>
 
                 <div className="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                     <div className="row">
-                        <div className="col">
+                        <div className="col-md">
                             <h3>Formal Education</h3>
                             <FormalEducationDetailsComponent educationsHistory={cv.educations} />
                         </div>
