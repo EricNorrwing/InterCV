@@ -16,7 +16,6 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
@@ -25,3 +24,27 @@ dist-ssr
 
 Tanstack
 *.routeTree.gen.ts
+
+# Visual Studio / .NET
+bin/
+obj/
+*.user
+*.DotSettings.user
+
+#Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore IDE/editor configurations
+.vscode/
+.idea/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
