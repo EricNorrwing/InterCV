@@ -26,6 +26,8 @@ Tanstack
 *.routeTree.gen.ts
 
 # Visual Studio / .NET
+bin/
+obj/
 **/bin/
 **/obj/
 *.user
