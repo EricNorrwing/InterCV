@@ -13,7 +13,7 @@ interface ReferenceProps {
 
 export default function ReferenceCardComponent({ reference }: ReferenceProps) {
     return (
-        <div className="card mb-3 reference-card">
+        <div className="card mb-3 reference-card fade-in">
             <div className="row g-0">
                 <div className="col-md-4 d-flex align-items-start card p-2 border-0">
                     <ReferenceProfilePicture pictureUrl={reference.linkedInProfilePictureUrl} />
