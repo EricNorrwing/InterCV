@@ -12,7 +12,9 @@ builder.Services.AddSwaggerGen();
 //TODO adding sample CV remove later
 builder.Services.AddSingleton<SampleCv>();
 //TODO Move services extension//db 
+
 builder.Services.AddSingleton<MongoDbConfig>();
+
 
 //TODO add cors fix later 
 builder.Services.AddCors(options =>
@@ -25,6 +27,9 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+builder.Configuration.AddEnvironmentVariables();
+var mongoUri = builder.Configuration.GetConnectionString("MongoDbUri");
+Console.WriteLine($"MongoDbUri loaded: {mongoUri.Substring(0, 10)}*****");
 var app = builder.Build();
 
 app.UseDefaultFiles();
