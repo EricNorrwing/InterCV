@@ -1,2 +1,2 @@
 env:
-  ConnectionStrings__MongoDbUri: ${{ secrets.MONG_ODB_URI }}
+  ConnectionStrings__MongoDbUri: ${{ secrets.MONGO_DB_URI }}
