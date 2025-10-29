@@ -30,11 +30,13 @@ Tanstack
 /intercv.client/node_modules
 /intercv.client/README.md
 /InterCV.Server/obj/
-
+/InterCV.Server/bin/
 **/bin/
 **/obj/
 *.user
 *.DotSettings.user
+/InterCV.Server/appsettings.Development.json
+/InterCV.Server/appsettings.json
 
 #Python
 *.pyc

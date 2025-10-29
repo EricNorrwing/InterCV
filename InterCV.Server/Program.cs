@@ -1,3 +1,4 @@
+using InterCV.Server.Configuration;
 using InterCV.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //TODO adding sample CV remove later
 builder.Services.AddSingleton<SampleCv>();
+//TODO Move services extension//db 
+builder.Services.AddSingleton<MongoDbConfig>();
 
 //TODO add cors fix later 
 builder.Services.AddCors(options =>
@@ -35,7 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 //TODO earlier temp cors setup
 app.UseCors("AllowFrontendDev");
-
+//TODO Move instantiaton?
+app.Services.GetRequiredService<MongoDbConfig>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
