@@ -1,2 +1,33 @@
-env:
-  ConnectionStrings__MongoDbUri: ${{ secrets.MONGO_DB_URI }}
+name: Deployment to development pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-and-test:
+    name: Build and test InterCV
+    runs-on: ubuntu-latest
+
+    env:
+      ConnectionStrings__MongoDbUri: ${{ secrets.MONGO_DB_URI }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x 
+
+      - name: Restore dependencies
+        run: dotnet restore InterCV.sln
+
+      - name: Build solution
+        run: dotnet build InterCV.sln --configuration Release
+
+      - name: Run unit tests
+        run: dotnet test InterCV.Tests/InterCV.Tests.csproj --configuration Release
