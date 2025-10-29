@@ -40,6 +40,10 @@ intercv.client/node_modules/
 # ======================================
 **/bin/
 **/obj/
+/intercv.client/obj
+/InterCV.Server/obj
+/InterCV.Server/bin
+
 /InterCV.Server/appsettings.Development.json
 /InterCV.Server/appsettings.json
 

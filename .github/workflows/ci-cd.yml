@@ -1,4 +1,4 @@
-name: Deployment to development pipeline
+name: Development CI/CD Pipeline on push to master TEMP Until proper branch strategies
 
 on:
   push:
