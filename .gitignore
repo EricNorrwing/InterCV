@@ -1,4 +1,6 @@
+# ======================================
 # Logs
+# ======================================
 logs
 *.log
 npm-debug.log*
@@ -7,51 +9,62 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# ======================================
+# Node / JS / Frontend
+# ======================================
+node_modules/
+dist/
+dist-ssr/
 *.local
 
-# Editor directories and files
+/intercv.client/obj/
+intercv.client/node_modules/
+
+# ======================================
+# Editor / IDE directories and files
+# ======================================
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-Tanstack
-*.routeTree.gen.ts
-
-# Visual Studio / .NET
-/intercv.client/obj/
-/intercv.client/node_modules
-/intercv.client/README.md
-/InterCV.Server/obj/
-/InterCV.Server/bin/
-**/bin/
-**/obj/
 *.user
 *.DotSettings.user
+
+# ======================================
+# .NET / Visual Studio
+# ======================================
+**/bin/
+**/obj/
 /InterCV.Server/appsettings.Development.json
 /InterCV.Server/appsettings.json
 
-#Python
+# ======================================
+# Tanstack / Generated files
+# ======================================
+Tanstack/
+*.routeTree.gen.ts
+
+# ======================================
+# Python
+# ======================================
 *.pyc
 *.pyo
 *.pyd
 __pycache__/
 
-# Ignore virtual environment directories
+# ======================================
+# Virtual environments
+# ======================================
 venv/
 env/
 
-# Ignore IDE/editor configurations
-.vscode/
-.idea/
-
-# Ignore operating system files
+# ======================================
+# OS files
+# ======================================
 .DS_Store
 Thumbs.db
