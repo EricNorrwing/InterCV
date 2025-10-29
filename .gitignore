@@ -26,8 +26,11 @@ Tanstack
 *.routeTree.gen.ts
 
 # Visual Studio / .NET
-bin/
-obj/
+/intercv.client/obj/
+/intercv.client/node_modules
+/intercv.client/README.md
+/InterCV.Server/obj/
+
 **/bin/
 **/obj/
 *.user
