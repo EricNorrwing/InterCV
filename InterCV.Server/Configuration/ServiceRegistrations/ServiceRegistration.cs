@@ -11,12 +11,10 @@ public static class ServiceRegistration
         
         //TODO adding sample CV remove later
         services.AddSingleton<SampleCv>();
-        //TODO Update DB Config
-        services.AddSingleton<MongoDbConfig>();
         
         services.AddCorsSettings();
         
-        services.AddDbContexts();
+        //services.AddDbContexts();
         
         services.AddEndpointsApiExplorer();
         

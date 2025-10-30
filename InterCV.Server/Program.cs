@@ -22,6 +22,9 @@ if (app.Environment.IsDevelopment())
 }
 //TODO earlier temp cors setup
 app.UseCors("AllowFrontendDev");
+//TODO
+var connectionString = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTION_STRING");
+Console.WriteLine(connectionString);
 
 app.UseHttpsRedirection();
 

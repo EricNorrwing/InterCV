@@ -9,9 +9,6 @@ jobs:
     name: Build and test InterCV
     runs-on: ubuntu-latest
 
-    env:
-      ConnectionStrings__MongoDbUri: ${{ secrets.MONGO_DB_URI }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,4 +27,4 @@ jobs:
         run: dotnet build InterCV.sln --configuration Release
 
       - name: Run unit tests
-        run: dotnet test InterCV.Tests/InterCV.Tests.csproj --configuration Release
+        run: dotnet test --configuration Release
