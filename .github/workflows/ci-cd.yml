@@ -2,7 +2,6 @@ name: Development CI/CD Pipeline on push to master TEMP Until proper branch stra
 
 on:
   push:
-    branches: [ "development" ]
 
 jobs:
   build-and-test:
