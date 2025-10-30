@@ -1,35 +1,14 @@
 using InterCV.Server.Configuration;
+using InterCV.Server.Configuration.Configurations;
+using InterCV.Server.Configuration.ServiceRegistrations;
 using InterCV.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Configuration.AddConfigurations(builder.Environment);
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-//TODO adding sample CV remove later
-builder.Services.AddSingleton<SampleCv>();
-//TODO Move services extension//db 
+builder.Services.AddServices(builder.Configuration);
 
-builder.Services.AddSingleton<MongoDbConfig>();
-
-
-//TODO add cors fix later 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontendDev", policy =>
-    {
-        policy
-            .WithOrigins("https://localhost:60965") 
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
-});
-builder.Configuration.AddEnvironmentVariables();
-var mongoUri = builder.Configuration.GetConnectionString("MongoDbUri");
-Console.WriteLine($"MongoDbUri loaded: {mongoUri.Substring(0, 10)}*****");
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -43,8 +22,10 @@ if (app.Environment.IsDevelopment())
 }
 //TODO earlier temp cors setup
 app.UseCors("AllowFrontendDev");
-//TODO Move instantiaton?
-app.Services.GetRequiredService<MongoDbConfig>();
+//TODO
+var connectionString = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTION_STRING");
+Console.WriteLine(connectionString);
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -2,15 +2,12 @@ name: Development CI/CD Pipeline on push to master TEMP Until proper branch stra
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "development" ]
 
 jobs:
   build-and-test:
     name: Build and test InterCV
     runs-on: ubuntu-latest
-
-    env:
-      ConnectionStrings__MongoDbUri: ${{ secrets.MONGO_DB_URI }}
 
     steps:
       - name: Checkout code
@@ -30,4 +27,4 @@ jobs:
         run: dotnet build InterCV.sln --configuration Release
 
       - name: Run unit tests
-        run: dotnet test InterCV.Tests/InterCV.Tests.csproj --configuration Release
+        run: dotnet test --configuration Release
