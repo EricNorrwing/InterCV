@@ -10,5 +10,5 @@ public class UserProfile
     public required string LastName { get; set; } 
     public required string Email { get; set; } 
     public required string Phone { get; set; } 
-    public LinkedInUrl LinkedInUrl { get; set; }
+    public LinkedInUrl? LinkedInUrl { get; set; }
 }

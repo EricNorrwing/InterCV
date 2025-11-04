@@ -2,6 +2,7 @@ using InterCV.Server.Configuration;
 using InterCV.Server.Configuration.Configurations;
 using InterCV.Server.Configuration.ServiceRegistrations;
 using InterCV.Server.Models;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,7 @@ var connectionString = builder.Configuration.GetConnectionString("AZURE_SQL_CONN
 Console.WriteLine(connectionString);
 
 app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 
