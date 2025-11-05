@@ -1,14 +1,17 @@
+using System.ComponentModel.DataAnnotations;
 using InterCV.Server.Models.UrlModels;
 
 namespace InterCV.Server.Models.Users;
 
 public class UserProfile
 {
-    public required string ProfilePictureUrl { get; set; }
-    public required string PreferredProfessionalTitle { get; set; }
-    public required string FirstName { get; set; } 
-    public required string LastName { get; set; } 
-    public required string Email { get; set; } 
-    public required string Phone { get; set; } 
-    public LinkedInUrl? LinkedInUrl { get; set; }
+    [Key]
+    public Guid UserId { get; set; }
+    public required User User { get; set; }
+
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public string? Phone { get; set; }
+    public string? LinkedInUrl { get; set; }
+    public string? DefaultTitle { get; set; }
 }

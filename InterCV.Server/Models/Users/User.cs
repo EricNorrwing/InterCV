@@ -1,14 +1,20 @@
 using InterCV.Server.Models.CvModels;
+using InterCV.Server.Models.CvModels.Educations;
+using InterCV.Server.Models.CvModels.Experiences;
+using InterCV.Server.Models.CvModels.Experiences.References;
 
 namespace InterCV.Server.Models.Users;
 
 public class User
 {
-    public int Id { get; set; }
-    public required string AuthId { get; set; }
-    public string? Email { get; set; }
+    public Guid Id { get; set; }
+
+    public required AuthUser Auth { get; set; }
 
     public UserProfile? Profile { get; set; }
 
-    public List<CvModel>? Cvs { get; set; }
+    public List<Cv>? Cvs { get; set; }
+    public List<Experience>? Experiences { get; set; }
+    public List<Education>? Educations { get; set; }
+    public List<Reference>? References { get; set; }
 }
