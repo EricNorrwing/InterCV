@@ -13,7 +13,7 @@ public class Cv
 
     public string? AboutMe { get; set; }
 
-    public List<CvExperience> Experiences { get; set; } = [];
-    public List<CvEducation> Educations { get; set; } = [];
-    public List<CvTag> Tags { get; set; } = [];
+    public List<CvExperience> Experiences { get; set; } = new List<CvExperience>();
+    public List<CvEducation> Educations { get; set; } = new List<CvEducation>();
+    public List<CvTag> Tags { get; set; } = new List<CvTag>();
 }

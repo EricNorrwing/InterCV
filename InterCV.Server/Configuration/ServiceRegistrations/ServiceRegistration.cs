@@ -1,3 +1,5 @@
+using InterCV.Server.Configuration.DbContextsConfiguration;
+using InterCV.Server.Configuration.ServiceRegistrations.Cors;
 using InterCV.Server.Models;
 
 namespace InterCV.Server.Configuration.ServiceRegistrations;
@@ -14,7 +16,7 @@ public static class ServiceRegistration
         
         services.AddCorsSettings();
         
-        //services.AddDbContexts();
+        services.AddDbContexts(configuration) ;
         
         services.AddEndpointsApiExplorer();
         

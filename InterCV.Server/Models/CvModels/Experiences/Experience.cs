@@ -19,6 +19,6 @@ public class Experience
     public string? Description { get; set; }
     public string? DescriptionShort { get; set; }
 
-    public List<Reference> References { get; set; } = [];
-    public List<Achievement> Achievements { get; set; } = [];
+    public List<Reference> References { get; set; } = new List<Reference>();
+    public List<Achievement> Achievements { get; set; } = new List<Achievement>();
 }

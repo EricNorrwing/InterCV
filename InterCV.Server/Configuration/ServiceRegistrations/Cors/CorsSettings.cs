@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Cors.Infrastructure;
-
-namespace InterCV.Server.Configuration.ServiceRegistrations;
+namespace InterCV.Server.Configuration.ServiceRegistrations.Cors;
 
 public static class CorsSettings
 {

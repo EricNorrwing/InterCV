@@ -12,7 +12,7 @@ public class User
     public AuthUser Auth { get; set; } = null!;
     public UserProfile? Profile { get; set; }
 
-    public List<Cv> Cvs { get; set; } = [];
-    public List<Experience> Experiences { get; set; } = [];
-    public List<Education> Educations { get; set; } = [];
+    public List<Cv> Cvs { get; set; } = new List<Cv>();
+    public List<Experience> Experiences { get; set; } = new List<Experience>();
+    public List<Education> Educations { get; set; } = new List<Education>();
 }

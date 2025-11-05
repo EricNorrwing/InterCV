@@ -15,7 +15,6 @@ var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -25,7 +24,6 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowFrontendDev");
 //TODO
 var connectionString = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTION_STRING");
-Console.WriteLine(connectionString);
 
 app.UseHttpsRedirection();
 
