@@ -5,10 +5,9 @@ namespace InterCV.Server.Models.CvModels.CvJunctionTables;
 public class CvExperience
 {
     public Guid CvId { get; set; }
-    public required Cv Cv { get; set; }
+    public Cv Cv { get; set; } = null!;
 
     public Guid ExperienceId { get; set; }
-    public required Experience Experience { get; set; }
-
-    public int SortOrder { get; set; }
+    public Experience Experience { get; set; } = null!;
+    
 }

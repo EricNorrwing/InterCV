@@ -1,4 +1,6 @@
-namespace InterCV.Server.Models.CvModels.Tags;
+using InterCV.Server.Models.CvModels.Tags;
+
+namespace InterCV.Server.Models.CvModels.CvJunctionTables;
 
 public class CvTag
 {

@@ -5,10 +5,9 @@ namespace InterCV.Server.Models.CvModels.CvJunctionTables;
 public class CvEducation
 {
     public Guid CvId { get; set; }
-    public required Cv Cv { get; set; }
+    public Cv Cv { get; set; } = null!;
 
     public Guid EducationId { get; set; }
-    public required Education Education { get; set; }
+    public Education Education { get; set; } = null!;
 
-    public int SortOrder { get; set; }
 }

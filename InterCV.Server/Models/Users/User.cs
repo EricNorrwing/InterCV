@@ -9,12 +9,10 @@ public class User
 {
     public Guid Id { get; set; }
 
-    public required AuthUser Auth { get; set; }
-
+    public AuthUser Auth { get; set; } = null!;
     public UserProfile? Profile { get; set; }
 
-    public List<Cv>? Cvs { get; set; }
-    public List<Experience>? Experiences { get; set; }
-    public List<Education>? Educations { get; set; }
-    public List<Reference>? References { get; set; }
+    public List<Cv> Cvs { get; set; } = [];
+    public List<Experience> Experiences { get; set; } = [];
+    public List<Education> Educations { get; set; } = [];
 }

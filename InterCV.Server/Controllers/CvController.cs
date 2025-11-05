@@ -11,11 +11,11 @@ public class CvController(SampleCv sampleCv): Controller
     
     //TODO just look at it it needs typing and then you can remove this. Also async
     [HttpGet("sampleCv")]
-    public Task<ActionResult<CvModel>> GetSampleCv()
+    public Task<ActionResult<Cv>> GetSampleCv()
     {
         var cv = SampleCv.GetSampleCv();
         
-        return Task.FromResult<ActionResult<CvModel>>(Ok(cv));
+        return Task.FromResult<ActionResult<Cv>>(Ok(cv));
     }
 
     
