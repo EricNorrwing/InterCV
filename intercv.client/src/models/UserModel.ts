@@ -1,17 +1,15 @@
-import type { LinkedInUrlModel } from "./UrlModel.ts";
-
 export interface UserProfile {
-    profilePictureUrl: string,
-    preferredProfessionalTitle: string,
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    linkedInUrl: LinkedInUrlModel;
+    profilePictureUrl?: string,
+    preferredProfessionalTitle?: string,
+    firstName: string,
+    lastName: string,
+    email?: string,
+    phone?: string,
+    linkedInUrl?: string
 }
 
 export interface UserData {
     visitors: UserProfile[],
     lastLogin: Date,
-    lastVisited: Date,
+    lastVisited: Date
 }

@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { CvDisplayPage } from '../../../pages/CVDisplayPage/CvDisplayPage.tsx'
 import {useQuery} from "@tanstack/react-query";
 import {getCv} from "../../../clients/cvClient.ts";
-import type {CvModel} from "../../../models/CvModel.ts";
+import type {CvModel} from "../../../models/Cv.ts";
 
 export const Route = createFileRoute('/en/cv/sampleCv')({
   component: RouteComponent,

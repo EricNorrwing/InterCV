@@ -1,10 +1,9 @@
-import {ProfilePictureCard} from "../../components/profile/picture/ProfilePictureCard.tsx";
+import { ProfilePictureCard } from "../../components/profile/picture/ProfilePictureCard.tsx";
 import ExperienceComponent from "../../components/experienceComponents/ExperienceComponent.tsx";
 import ExperienceDetailsComponent
     from "../../components/experienceComponents/experienceDetailsComponents/ExperienceDetailsComponent.tsx";
-import type {CvModel} from "../../models/CvModel.ts";
 import CvHeaderComponent from "../../components/generalCvComponents/CvHeaderComponent.tsx";
-import {useState} from "react";
+import { useState } from "react";
 import FormalEducationDetailsComponent from "../../components/educationComponents/FormalEducationDetailsComponent.tsx";
 import InformalEducationDetailsComponent
     from "../../components/educationComponents/InformalEducationDetailsComponent.tsx";
@@ -14,14 +13,16 @@ import "../../components/experienceComponents/Experience.css"
 import ExperienceDetailsReferenceComponent
     from "../../components/experienceComponents/experienceDetailsComponents/ExperienceDetailsReferenceComponent.tsx";
 import "./CvDisplayPage.css";
-
+import type {Cv} from "../../models/Cv.ts";
 
 interface CvDisplayPageProps {
-    cv: CvModel;
+    cv: Cv;
 }
 
 export function CvDisplayPage({ cv }: CvDisplayPageProps) {
     const [selectedExperienceIndex, setSelectedExperienceIndex] = useState<number | null>(null);
+
+    const selectedExperience = selectedExperienceIndex !== null ? cv.experiences[selectedExperienceIndex] : null;
 
     return (
         <div className="container-fluid" id="cv-display-page-container">
@@ -29,8 +30,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                 <div className="col-sm-4">
                     <CvHeaderComponent user={cv.user} tags={cv.tags} />
                 </div>
-                <div className="col-sm-2">
-                </div>
+                <div className="col-sm-2" />
                 <div className="col-sm-6 d-flex justify-content-center align-items-center">
                     <ProfilePictureCard pictureUrl={cv.user.profilePictureUrl} />
                 </div>
@@ -82,6 +82,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
             </ul>
 
             <div className="tab-content" id="myTabContent">
+                {/* Work Experience */}
                 <div className="tab-pane fade show active" id="work-experience" role="tabpanel" aria-labelledby="Work-tab">
                     <div className="row">
                         <div className="col">
@@ -91,29 +92,30 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                                 selectedIndex={selectedExperienceIndex ?? -1}
                                 onSelect={setSelectedExperienceIndex}
                             />
-                            
                         </div>
                         <div className="col">
                             <h3>Experience Details: </h3>
-                            {selectedExperienceIndex === null ? (
-                                <ExperienceInstructionComponent />
-                            ) : (
+                            {selectedExperience ? (
                                 <div key={selectedExperienceIndex} className="fade-in">
                                     <ExperienceDetailsComponent
-                                        details={cv.experiences[selectedExperienceIndex].details}
+                                        description={selectedExperience.description}
+                                        achievements={selectedExperience.achievements}
                                     />
                                 </div>
+                            ) : (
+                                <ExperienceInstructionComponent />
                             )}
                         </div>
                         <div className="col-md-5">
                             <h3>References by Workplace: </h3>
-                            {selectedExperienceIndex !== null ? (
-                                <ExperienceDetailsReferenceComponent  references={cv.experiences[selectedExperienceIndex].details.references}/>
-                            ): null}
+                            {selectedExperience?.references ? (
+                                <ExperienceDetailsReferenceComponent references={selectedExperience.references} />
+                            ) : null}
                         </div>
                     </div>
                 </div>
 
+                {/* Education */}
                 <div className="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                     <div className="row">
                         <div className="col-md">
@@ -127,6 +129,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                     </div>
                 </div>
 
+                {/* About Me */}
                 <div className="tab-pane fade" id="about-me" role="tabpanel" aria-labelledby="about-me-tab">
                     <AboutMeComponent aboutMe={cv.aboutMe} />
                 </div>

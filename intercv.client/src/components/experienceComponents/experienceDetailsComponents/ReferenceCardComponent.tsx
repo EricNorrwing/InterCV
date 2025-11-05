@@ -1,4 +1,4 @@
-import type { ExperienceReference } from "../../../models/CvModel.ts";
+import type { ExperienceReference } from "../../../models/Cv.ts";
 import "./ReferenceCardComponent.css";
 
 import { MdOutlineEmail } from "react-icons/md";

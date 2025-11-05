@@ -1,4 +1,4 @@
-import type {Education} from "../../models/CvModel.ts";
+import type {Education} from "../../models/Cv.ts";
 import {Link} from "@tanstack/react-router";
 import { IoIosAttach } from "react-icons/io";
 

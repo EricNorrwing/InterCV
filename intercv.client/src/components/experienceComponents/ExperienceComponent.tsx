@@ -1,6 +1,6 @@
 
 import ExperienceSelectItemComponent from "./ExperienceSelectItemComponent.tsx";
-import type {Experience} from "../../models/CvModel.ts";
+import type {Experience} from "../../models/Cv.ts";
 
 interface ExperienceComponentProps {
     experiences: Experience[];

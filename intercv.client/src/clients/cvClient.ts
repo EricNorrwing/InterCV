@@ -1,4 +1,4 @@
-import type {CvModel} from "../models/CvModel.ts";
+import type {CvModel} from "../models/Cv.ts";
 
 const baseUrl = "http://localhost:5172";
 

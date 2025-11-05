@@ -1,4 +1,4 @@
-import type {Experience} from "../../models/CvModel.ts";
+import type {Experience} from "../../models/Cv.ts";
 
 interface ExperienceItemProps {
     exp: Experience;

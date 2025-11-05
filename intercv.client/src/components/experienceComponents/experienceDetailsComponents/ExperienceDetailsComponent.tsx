@@ -1,15 +1,15 @@
 import ExperienceDetailsAchievementComponent from "./ExperienceDetailsAchievementComponent.tsx";
-import type {ExperienceDetails} from "../../../models/CvModel.ts";
 
 interface ExperienceDetailsProps {
-    details: ExperienceDetails;
-}
-export default function ExperienceDetailsComponent ({details}: ExperienceDetailsProps) {
-    return (
-        <div>
-            <p className={"preserve-whitespace"}>{details.descriptionLong}</p>
-            <ExperienceDetailsAchievementComponent achievements={details.achievements} />
-        </div>
-    )
+    description?: string;
+    achievements?: string[];
 }
 
+export default function ExperienceDetailsComponent({ description, achievements }: ExperienceDetailsProps) {
+    return (
+        <div>
+            {description && <p className="preserve-whitespace">{description}</p>}
+            {achievements && <ExperienceDetailsAchievementComponent achievements={achievements} />}
+        </div>
+    );
+}
