@@ -7,11 +7,13 @@ In short read as little or as much as you want while still getting all the infor
 Current Techstack:
 .Net C# Backend
 
-
 Frontend React Typescript
 Tanstack Router/Query
+
+DB:
+Azure SQL
 
 Planned development:
 Okta/Auth0
 Azure App container
-DB (Current plan is MongoDB)
+
