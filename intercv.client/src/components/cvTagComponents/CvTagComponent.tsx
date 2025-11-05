@@ -1,9 +1,5 @@
-interface CvTag {
-    id: string;
-    userId: string;
-    user: object;
-    name: string;
-}
+import type {CvTag} from "../../models/Cv.ts";
+
 
 interface CvTagProps {
     tags: CvTag[];

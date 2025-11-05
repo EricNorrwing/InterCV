@@ -46,6 +46,12 @@ export interface Education {
     description?: string,
     verification?: string
 }
+export interface CvTag {
+    id: string;
+    userId: string;
+    user: object;
+    name: string;
+}
 
 export type EducationType =
     | "HighSchool"

@@ -20,6 +20,7 @@ interface CvDisplayPageProps {
 }
 
 export function CvDisplayPage({ cv }: CvDisplayPageProps) {
+    console.log(cv);
     const [selectedExperienceIndex, setSelectedExperienceIndex] = useState<number | null>(null);
 
     const selectedExperience = selectedExperienceIndex !== null ? cv.experiences[selectedExperienceIndex] : null;
@@ -82,7 +83,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
             </ul>
 
             <div className="tab-content" id="myTabContent">
-                {/* Work Experience */}
+                
                 <div className="tab-pane fade show active" id="work-experience" role="tabpanel" aria-labelledby="Work-tab">
                     <div className="row">
                         <div className="col">
@@ -115,7 +116,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                     </div>
                 </div>
 
-                {/* Education */}
+                
                 <div className="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
                     <div className="row">
                         <div className="col-md">
@@ -129,7 +130,7 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
                     </div>
                 </div>
 
-                {/* About Me */}
+               
                 <div className="tab-pane fade" id="about-me" role="tabpanel" aria-labelledby="about-me-tab">
                     <AboutMeComponent aboutMe={cv.aboutMe} />
                 </div>
