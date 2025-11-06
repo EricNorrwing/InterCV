@@ -11,7 +11,7 @@ public class SampleCv
 {
     public static Cv GetSampleCv()
     {
-        // Create the user
+       
         var user = new User
         {
             Profile = new UserProfile
@@ -23,8 +23,7 @@ public class SampleCv
                 DefaultTitle = "Systems Engineer"
             }
         };
-
-        // Create experiences and attach user
+        
         var experiences = new List<Experience>
         {
             new Experience
@@ -107,8 +106,7 @@ public class SampleCv
                 }
             }
         };
-
-        // Attach the parent Experience to Achievements and References
+        
         foreach (var exp in experiences)
         {
             foreach (var ach in exp.Achievements)
@@ -116,8 +114,7 @@ public class SampleCv
             foreach (var reference in exp.References)
                 reference.Experience = exp;
         }
-
-        // Create educations and attach user
+        
         var educations = new List<Education>
         {
             new Education
