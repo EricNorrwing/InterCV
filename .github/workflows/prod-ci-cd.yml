@@ -2,8 +2,7 @@ name: Production Pipeline
 
 on:
   pull_request:
-    branches:
-      - master
+    branches: [ "master" ]
 
 jobs:
   build-and-migrate-prod:
