@@ -11,6 +11,7 @@ public class SampleCv
 {
     public static Cv GetSampleCv()
     {
+        // Create the user
         var user = new User
         {
             Profile = new UserProfile
@@ -23,12 +24,14 @@ public class SampleCv
             }
         };
 
+        // Create experiences and attach user
         var experiences = new List<Experience>
         {
             new Experience
             {
-                Workplace = "LF Finans",
+                User = user,
                 Title = ".Net Systems Engineer",
+                Workplace = "LF Finans",
                 StartDate = new DateTime(2025, 1, 10),
                 EndDate = new DateTime(2025, 6, 15),
                 DescriptionShort = "Junior developer internship, focusing on the internal test platform Molgan and KYC/ODD stabilization project.",
@@ -36,14 +39,14 @@ public class SampleCv
                     Worked on the internal test platform Molgan, developing new modules and structural improvements, and transitioned the codebase to TypeScript.
                     Contributed to KYC platform microservices, resolving performance issues and bugs in the legacy monolith.
                 """,
-                Achievements =
-                [
+                Achievements = new List<Achievement>
+                {
                     new Achievement { Title = "Stabilized KYC/ODD project" },
                     new Achievement { Title = "Improved internal test platform Molgan" },
                     new Achievement { Title = "Collaborated with Anti-Money-Laundering integration team" }
-                ],
-                References =
-                [
+                },
+                References = new List<Reference>
+                {
                     new Reference
                     {
                         FirstName = "Mattias",
@@ -52,10 +55,8 @@ public class SampleCv
                         LinkedInUrl = "https://www.linkedin.com/in/mcsn/",
                         Email = "Mattias.Carlsson@Lffinans.com",
                         Phone = "+1-555-123-4567",
-                        PictureUrl =
-                            "https://media.licdn.com/dms/image/v2/C4E03AQHJLJN497QYIQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517411205988?e=1762992000&v=beta&t=8rjZbwChqNf9KL5n3D1tx5jnsnH1qdAqXug_ryD3FH0"
+                        PictureUrl = "https://media.licdn.com/dms/image/v2/C4E03AQHJLJN497QYIQ/profile-displayphoto-shrink_200_200/0/1517411205988?e=1762992000&v=beta&t=8rjZbwChqNf9KL5n3D1tx5jnsnH1qdAqXug_ryD3FH0"
                     },
-
                     new Reference
                     {
                         FirstName = "Per",
@@ -65,7 +66,6 @@ public class SampleCv
                         Email = "Per.test@example.com",
                         Phone = "+1-555-888-2222"
                     },
-
                     new Reference
                     {
                         FirstName = "Peter",
@@ -74,12 +74,13 @@ public class SampleCv
                         Email = "Peter.test@example.com",
                         Phone = "+1-555-888-2222"
                     }
-                ]
+                }
             },
             new Experience
             {
-                Workplace = "Tritech Solutions",
+                User = user,
                 Title = "System Assembly Engineer",
+                Workplace = "Tritech Solutions",
                 StartDate = new DateTime(2022, 1, 1),
                 EndDate = new DateTime(2023, 1, 10),
                 DescriptionShort = "Assembly and installation of industrial computers for European customers.",
@@ -87,13 +88,13 @@ public class SampleCv
                     Assembled specialized computers for industrial applications, ensured product quality, and managed new product additions to the company website.
                     Improved SEO and content metadata for better online visibility.
                 """,
-                Achievements =
-                [
+                Achievements = new List<Achievement>
+                {
                     new Achievement { Title = "Improved SEO and added hundreds of products" },
                     new Achievement { Title = "Ensured stability in specialized computer installations" }
-                ],
-                References =
-                [
+                },
+                References = new List<Reference>
+                {
                     new Reference
                     {
                         FirstName = "James",
@@ -103,14 +104,25 @@ public class SampleCv
                         Email = "refa@example.com",
                         Phone = "+1-555-111-2222"
                     }
-                ]
+                }
             }
         };
 
+        // Attach the parent Experience to Achievements and References
+        foreach (var exp in experiences)
+        {
+            foreach (var ach in exp.Achievements)
+                ach.Experience = exp;
+            foreach (var reference in exp.References)
+                reference.Experience = exp;
+        }
+
+        // Create educations and attach user
         var educations = new List<Education>
         {
             new Education
             {
+                User = user,
                 Type = EducationType.Bachelor,
                 Institution = "Stockholms Tekniska Institut",
                 Title = "Java / Fullstack Developer Program",
@@ -121,6 +133,7 @@ public class SampleCv
             },
             new Education
             {
+                User = user,
                 Type = EducationType.Bachelor,
                 Institution = "Nackademin",
                 Title = "Business Intelligence Analyst Program",
@@ -130,6 +143,7 @@ public class SampleCv
             },
             new Education
             {
+                User = user,
                 Type = EducationType.Certificate,
                 Institution = "Arbetsförmedlingen",
                 Title = "Forklift Certification A1-A4, B1-B6",
@@ -141,17 +155,18 @@ public class SampleCv
 
         var tags = new List<Tag>
         {
-            new Tag { Name = "C#/.NET", User = user },
-            new Tag { Name = "Java/Springboot", User = user },
-            new Tag { Name = "Automated Testing", User = user },
-            new Tag { Name = "React JS/TS", User = user },
-            new Tag { Name = "DevOps", User = user },
-            new Tag { Name = "Docker", User = user },
-            new Tag { Name = "Agile (Scrum)", User = user },
-            new Tag { Name = "SQL", User = user },
-            new Tag { Name = "No-SQL DB's", User = user }
+            new Tag { Name = "C#/.NET" },
+            new Tag { Name = "Java/Springboot" },
+            new Tag { Name = "Automated Testing" },
+            new Tag { Name = "React JS/TS" },
+            new Tag { Name = "DevOps" },
+            new Tag { Name = "Docker" },
+            new Tag { Name = "Agile (Scrum)" },
+            new Tag { Name = "SQL" },
+            new Tag { Name = "No-SQL DB's" }
         };
 
+        // Now create CV with proper navigation links
         return new Cv
         {
             User = user,
@@ -159,9 +174,9 @@ public class SampleCv
                 I’m a junior fullstack developer with hands-on experience in Java and .NET, passionate about clean, maintainable applications.
                 Worked across backend services and React frontends. Creator of InterCV, focused on showcasing developer skills effectively.
             """,
-            Experiences = experiences.Select(e => new CvExperience { Experience = e }).ToList(),
-            Educations = educations.Select(ed => new CvEducation { Education = ed }).ToList(),
-            Tags = tags.Select(t => new CvTag { Tag = t }).ToList()
+            Experiences = experiences.Select(e => new CvExperience { Cv = null!, Experience = e }).ToList(),
+            Educations = educations.Select(ed => new CvEducation { Cv = null!, Education = ed }).ToList(),
+            Tags = tags.Select(t => new CvTag { Cv = null!, Tag = t }).ToList()
         };
     }
 }

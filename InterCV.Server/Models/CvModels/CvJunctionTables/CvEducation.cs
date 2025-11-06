@@ -9,5 +9,4 @@ public class CvEducation
 
     public Guid EducationId { get; set; }
     public Education Education { get; set; } = null!;
-
 }

@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using InterCV.Server.Models.CvModels.CvJunctionTables;
 using InterCV.Server.Models.CvModels.Tags;
 using InterCV.Server.Models.Users;
@@ -6,6 +7,7 @@ namespace InterCV.Server.Models;
 
 public class Cv
 {
+    [Key]
     public Guid Id { get; set; }
 
     public Guid UserId { get; set; }
@@ -13,7 +15,7 @@ public class Cv
 
     public string? AboutMe { get; set; }
 
-    public List<CvExperience> Experiences { get; set; } = new List<CvExperience>();
-    public List<CvEducation> Educations { get; set; } = new List<CvEducation>();
-    public List<CvTag> Tags { get; set; } = new List<CvTag>();
+    public List<CvExperience> Experiences { get; set; } = new();
+    public List<CvEducation> Educations { get; set; } = new();
+    public List<CvTag> Tags { get; set; } = new();
 }

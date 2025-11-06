@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace InterCV.Server.Models.CvModels.Experiences;
 
 public class Achievement
 {
+    [Key]
     public Guid Id { get; set; }
 
     public Guid ExperienceId { get; set; }

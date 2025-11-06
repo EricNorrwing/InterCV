@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InterCV.Server.Models.Users;
+
 
 public class UserProfile
 {
@@ -14,5 +16,4 @@ public class UserProfile
     public string? Phone { get; set; }
     public string? LinkedInUrl { get; set; }
     public string? DefaultTitle { get; set; }
-
 }

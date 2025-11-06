@@ -1,9 +1,11 @@
+using System.ComponentModel.DataAnnotations;
 using InterCV.Server.Models.Users;
 
 namespace InterCV.Server.Models.CvModels.Experiences.References;
 
 public class Reference
 {
+    [Key]
     public Guid Id { get; set; }
 
     public Guid ExperienceId { get; set; }
@@ -14,7 +16,6 @@ public class Reference
 
     public string? Email { get; set; }
     public string? Phone { get; set; }
-
     public string? Title { get; set; }
     public string? LinkedInUrl { get; set; }
     public string? PictureUrl { get; set; }

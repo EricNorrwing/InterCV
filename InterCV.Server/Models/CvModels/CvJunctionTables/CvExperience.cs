@@ -9,5 +9,4 @@ public class CvExperience
 
     public Guid ExperienceId { get; set; }
     public Experience Experience { get; set; } = null!;
-    
 }

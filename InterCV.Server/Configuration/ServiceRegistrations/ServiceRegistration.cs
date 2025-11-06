@@ -8,11 +8,10 @@ public static class ServiceRegistration
 {
     public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddControllers();
-        
-        
-        //TODO adding sample CV remove later
-        services.AddSingleton<SampleCv>();
+        services.AddControllers().AddJsonOptions(x =>
+        {
+            x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        });
         
         services.AddCorsSettings();
         
