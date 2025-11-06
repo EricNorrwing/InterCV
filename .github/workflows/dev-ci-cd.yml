@@ -2,8 +2,7 @@ name: Dev Pipeline
 
 on:
   push:
-    branches:
-      - [ "development" ]
+    branches: [ "development" ]
 
 jobs:
   build-and-migrate-dev:
