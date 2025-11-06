@@ -5,7 +5,7 @@ on:
     branches: [ "development" ]
 
 jobs:
-  build-and-migrate-dev:
+  build-and-test-dev:
     runs-on: ubuntu-latest
 
     steps:

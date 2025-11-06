@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build-and-migrate-prod:
+  build-and-test-prod:
     runs-on: ubuntu-latest
 
     steps:
