@@ -1,18 +1,20 @@
-import type {CvTag} from "../../models/Cv.ts";
-
 
 interface CvTagProps {
-    tags: CvTag[];
+    tags: string[];
 }
 
 export default function CvTagComponent({ tags }: CvTagProps) {
     return (
-        <ul className="d-flex flex-wrap flex-row gap-2 justify-content-start p-0 m-0">
+        <div className="d-flex flex-wrap gap-2">
             {tags.map((tag, index) => (
-                <li key={`${tag.id}-${index}`} className="badge bg-primary list-unstyled">
-                    {tag.name}
-                </li>
+                <span
+                    key={index}
+                    className="badge bg-primary"
+                    aria-label={`Tag: ${tag}`}
+                >
+          {tag}
+        </span>
             ))}
-        </ul>
+        </div>
     );
 }

@@ -7,7 +7,7 @@ public static class DbContextRegistration
 {
     public static IServiceCollection AddDbContexts(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("AZURE_SQL_CONNECTION_STRING");
+        var connectionString = configuration.GetConnectionString("DEV_AZURE_SQL_CONNECTION_STRING");
         
         services.AddDbContext<InterCvDbContext>(options =>
             options.UseSqlServer(connectionString));

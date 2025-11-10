@@ -66,6 +66,6 @@ public class CvController(InterCvDbContext dbContext) : ControllerBase
 
         return Ok(cv);
     }
-
+    
     
 }
