@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as EnHomeRouteImport } from './routes/en/home'
 import { Route as EnCvSampleCvRouteImport } from './routes/en/cv/sampleCv'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnHomeRoute = EnHomeRouteImport.update({
   id: '/en/home',
   path: '/en/home',
@@ -24,33 +30,44 @@ const EnCvSampleCvRoute = EnCvSampleCvRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/login': typeof LoginRoute
   '/en/home': typeof EnHomeRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRoutesByTo {
+  '/login': typeof LoginRoute
   '/en/home': typeof EnHomeRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/login': typeof LoginRoute
   '/en/home': typeof EnHomeRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/en/home' | '/en/cv/sampleCv'
+  fullPaths: '/login' | '/en/home' | '/en/cv/sampleCv'
   fileRoutesByTo: FileRoutesByTo
-  to: '/en/home' | '/en/cv/sampleCv'
-  id: '__root__' | '/en/home' | '/en/cv/sampleCv'
+  to: '/login' | '/en/home' | '/en/cv/sampleCv'
+  id: '__root__' | '/login' | '/en/home' | '/en/cv/sampleCv'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  LoginRoute: typeof LoginRoute
   EnHomeRoute: typeof EnHomeRoute
   EnCvSampleCvRoute: typeof EnCvSampleCvRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/home': {
       id: '/en/home'
       path: '/en/home'
@@ -69,6 +86,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  LoginRoute: LoginRoute,
   EnHomeRoute: EnHomeRoute,
   EnCvSampleCvRoute: EnCvSampleCvRoute,
 }
