@@ -20,9 +20,8 @@ interface CvDisplayPageProps {
 }
 
 export function CvDisplayPage({ cv }: CvDisplayPageProps) {
-    console.log(cv);
+    
     const [selectedExperienceIndex, setSelectedExperienceIndex] = useState<number | null>(null);
-
     const selectedExperience = selectedExperienceIndex !== null ? cv.experiences[selectedExperienceIndex] : null;
 
     return (
