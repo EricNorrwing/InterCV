@@ -20,7 +20,6 @@ interface CvDisplayPageProps {
 }
 
 export function CvDisplayPage({ cv }: CvDisplayPageProps) {
-    
     const [selectedExperienceIndex, setSelectedExperienceIndex] = useState<number | null>(null);
     const selectedExperience = selectedExperienceIndex !== null ? cv.experiences[selectedExperienceIndex] : null;
 
@@ -28,11 +27,11 @@ export function CvDisplayPage({ cv }: CvDisplayPageProps) {
         <div className="container-fluid" id="cv-display-page-container">
             <div className="row">
                 <div className="col-sm-4">
-                    <CvHeaderComponent user={cv.user} tags={cv.tags} />
+                    <CvHeaderComponent user={cv.profile} tags={cv.tags} />
                 </div>
                 <div className="col-sm-2" />
                 <div className="col-sm-6 d-flex justify-content-center align-items-center">
-                    <ProfilePictureCard pictureUrl={cv.user.profilePictureUrl} />
+                    <ProfilePictureCard pictureUrl={cv.profile.profilePictureUrl} />
                 </div>
             </div>
 

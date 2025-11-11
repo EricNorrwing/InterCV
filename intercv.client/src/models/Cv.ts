@@ -5,7 +5,7 @@ export interface Cv {
     tags: string[],
     educations: Education[],
     aboutMe: string,
-    user: UserProfile,
+    profile: UserProfile,
     userData?: UserData[]
 }
 
@@ -19,13 +19,6 @@ export interface Experience {
     achievements?: string[],
     references?: ExperienceReference[]
 }
-
-export interface ExperienceDetails {
-    descriptionLong: string,
-    achievements: string[],
-    references?: ExperienceReference[]
-}
-
 
 export interface ExperienceReference {
     firstName: string,

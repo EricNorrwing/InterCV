@@ -11,10 +11,7 @@ public static class ServiceRegistration
     public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
     {
         //TODO research
-        services.AddControllers().AddJsonOptions(x =>
-        {
-            x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-        });
+        services.AddControllers();
         
         services.AddCorsSettings();
         

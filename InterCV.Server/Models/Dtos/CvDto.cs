@@ -1,11 +1,13 @@
-namespace InterCV.Server.Models.DTOs;
+using InterCV.Server.Models.DTOs;
+
+namespace InterCV.Server.Models.Dtos;
 
 public class CvDto
 {
     public Guid Id { get; set; }
-    public string? AboutMe { get; set; }
-    public UserProfileDto? Profile { get; set; }
-    public List<ExperienceDto> Experiences { get; set; } = new();
-    public List<EducationDto> Educations { get; set; } = new();
-    public List<TagDto> Tags { get; set; } = new();
+    public string AboutMe { get; set; } = string.Empty;
+    public UserProfileDto Profile { get; set; } = null!;
+    public List<ExperienceDto> Experiences { get; set; } = [];
+    public List<EducationDto> Educations { get; set; } = [];
+    public List<string> Tags { get; set; } = []; 
 }

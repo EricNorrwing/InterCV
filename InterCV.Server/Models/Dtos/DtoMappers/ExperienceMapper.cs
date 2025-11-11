@@ -10,18 +10,23 @@ public static class ExperienceMapper
         return new ExperienceDto
         {
             Id = exp.Id,
-            Title = exp.Title,
             Workplace = exp.Workplace,
+            Title = exp.Title,
             StartDate = exp.StartDate,
             EndDate = exp.EndDate,
             DescriptionShort = exp.DescriptionShort,
             Description = exp.Description,
-            Achievements = exp.Achievements?
-                .Select(a => a.ToDto())
-                .ToList() ?? new List<AchievementDto>(),
-            References = exp.References?
-                .Select(r => r.ToDto())
-                .ToList() ?? new List<ReferenceDto>()
+            Achievements = exp.Achievements.Select(a => a.Title).ToList(),
+            References = exp.References.Select(r => new ReferenceDto
+            {
+                FirstName = r.FirstName,
+                LastName = r.LastName,
+                Title = r.Title,
+                LinkedInUrl = r.LinkedInUrl,
+                PictureUrl = r.PictureUrl,
+                Email = r.Email,
+                Phone = r.Phone
+            }).ToList()
         };
     }
 }
