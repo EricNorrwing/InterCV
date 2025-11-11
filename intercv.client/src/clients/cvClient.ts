@@ -1,8 +1,8 @@
-import type {CvModel} from "../models/Cv.ts";
+import type {Cv} from "../models/Cv.ts";
 
 const baseUrl = "http://localhost:5172";
 
-export async function getCv(path: string): Promise<CvModel> {
+export async function getCv(path: string): Promise<Cv> {
     const response = await fetch(baseUrl + path);
     return await response.json();
 }
