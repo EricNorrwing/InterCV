@@ -5,22 +5,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InterCV.Server.Repositories;
 
-public class CvRepository(InterCvDbContext dbContext, AppSettingsReader appSettingsReader)
+public class CvRepository(InterCvDbContext dbContext, SettingsProvider settingsProvider)
 {
-    public async Task<Cv?> GetSampleCv()
+    public async Task<Cv?> GetSampleCvAsync()
     {
-        try
-        {
-            string sampleCvId = appSettingsReader.ExposeSettings("SampleCvId");
+        string sampleCvId = settingsProvider.ExposeSettings("SampleCvId") ?? string.Empty;
 
-            return await dbContext.Cvs
-                .FirstOrDefaultAsync(x => x.Id.ToString() == sampleCvId);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
+        if (string.IsNullOrEmpty(sampleCvId))
             return null;
-        }
+
+        return await dbContext.Cvs
+            .Include(c => c.User)
+            .ThenInclude(u => u.Profile)
+            .Include(c => c.Experiences)
+            .ThenInclude(ce => ce.Experience)
+            .ThenInclude(e => e.Achievements)
+            .Include(c => c.Experiences)
+            .ThenInclude(ce => ce.Experience)
+            .ThenInclude(e => e.References)
+            .Include(c => c.Educations)
+            .ThenInclude(ce => ce.Education)
+            .Include(c => c.Tags)
+            .ThenInclude(ct => ct.Tag)
+            .FirstOrDefaultAsync(c => c.Id.ToString() == sampleCvId);
     }
     
 }
