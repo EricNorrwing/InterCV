@@ -14,7 +14,7 @@ public class AccountController(IConfiguration config) : Controller
     public async Task Login()
     {
         var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
-            .WithRedirectUri(config["Authentication:CallbackUrl"]) 
+            .WithRedirectUri("https://localhost:60965/en/home")
             .Build();
 
         await HttpContext.ChallengeAsync(
