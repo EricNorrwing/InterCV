@@ -3,7 +3,7 @@ namespace InterCV.Server.Configuration.Configurations;
 public class SettingsProvider
 {
     private readonly IConfiguration _configuration;
-
+//TODO
     public SettingsProvider(IConfiguration configuration)
     {
         _configuration = configuration;

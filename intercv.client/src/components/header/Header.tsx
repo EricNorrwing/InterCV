@@ -1,4 +1,4 @@
-﻿import { useAuth0 } from "@auth0/auth0-react";
+﻿
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import ICVLogo from "../../assets/ICVLogo.png";
@@ -9,8 +9,6 @@ import { Link } from '@tanstack/react-router';
 const lang = navigator.language;
 
 export function Header() {
-    const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container-fluid">
@@ -32,21 +30,8 @@ export function Header() {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
-                        {!isAuthenticated ? (
-                            <button
-                                className="btn btn-outline-success me-2"
-                                onClick={() => loginWithRedirect()}
-                            >
-                                Log In
-                            </button>
-                        ) : (
-                            <button
-                                className="btn btn-outline-danger me-2"
-                                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-                            >
-                                Log Out
-                            </button>
-                        )}
+                        {/* TODO */}
+                        <Link to="/login"/>
                         <Link
                             to="/en/cv/sampleCv"
                             className="btn btn-outline-success me-2"
