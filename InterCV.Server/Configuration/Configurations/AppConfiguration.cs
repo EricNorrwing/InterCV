@@ -12,8 +12,9 @@ public static class AppConfiguration
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
+        //TODO update CORS
         app.UseCors("AllowFrontendDev");
+        
         app.UseHttpsRedirection();
         
         app.UseAuthentication();

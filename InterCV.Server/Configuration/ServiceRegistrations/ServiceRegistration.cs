@@ -40,6 +40,8 @@ public static class ServiceRegistration
             
             
         services.AddEndpointsApiExplorer();
+        //TODO Remove?
+        services.AddControllersWithViews();
         
         services.AddSwaggerGen();
         

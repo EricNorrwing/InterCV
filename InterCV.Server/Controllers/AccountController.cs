@@ -27,7 +27,7 @@ public class AccountController(IConfiguration config) : Controller
     [HttpGet("profile")]
     public IActionResult Profile()
     {
-        return View(new
+        return Ok(new
         {
             Name = User.Identity.Name,
             EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
@@ -52,4 +52,5 @@ public class AccountController(IConfiguration config) : Controller
             CookieAuthenticationDefaults.AuthenticationScheme
         );
     }
+    
 }
