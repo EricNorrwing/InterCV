@@ -13,8 +13,10 @@ public class AccountController(IConfiguration config) : Controller
     [HttpGet("login")] 
     public async Task Login()
     {
+        //TODO update to gather other information we might need later for example to link accounts.
         var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
             .WithRedirectUri("https://localhost:60965/en/home")
+            .WithScope("openid profile email")
             .Build();
 
         await HttpContext.ChallengeAsync(
@@ -27,12 +29,39 @@ public class AccountController(IConfiguration config) : Controller
     [HttpGet("profile")]
     public IActionResult Profile()
     {
-        return Ok(new
+        // TODO just checking custom claims, AI built this horrifying item
+        var allClaims = User.Claims
+            .Select(c => new 
+            { 
+                Type = c.Type, 
+                Value = c.Value 
+            })
+            .ToList();
+        
+        var rolesJson = User.Claims.FirstOrDefault(c => c.Type == "https://intercv.com/roles")?.Value;
+        string[] roles = Array.Empty<string>();
+        if (!string.IsNullOrEmpty(rolesJson))
         {
-            Name = User.Identity.Name,
-            EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
-            ProfileImage = User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value
-        });
+            try
+            {
+                roles = System.Text.Json.JsonSerializer.Deserialize<string[]>(rolesJson);
+            }
+            catch
+            {
+                roles = new string[] { rolesJson };
+            }
+        }
+
+        var profile = new
+        {
+            Name = User.Identity?.Name ?? "",
+            Email = User.FindFirstValue(ClaimTypes.Email) ?? "",
+            ProfileImage = User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value ?? "",
+            Roles = roles,
+            Claims = allClaims
+        };
+
+        return Ok(profile);
     }
 
     [Authorize]
@@ -40,7 +69,7 @@ public class AccountController(IConfiguration config) : Controller
     public async Task Logout()
     {
         var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
-            .WithRedirectUri(config["Authentication:CallbackUrl"])
+            .WithRedirectUri("https://localhost:60965/en/home")
             .Build();
 
         await HttpContext.SignOutAsync(
