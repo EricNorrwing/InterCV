@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as EnProfileRouteImport } from './routes/en/profile'
 import { Route as EnHomeRouteImport } from './routes/en/home'
 import { Route as EnCvSampleCvRouteImport } from './routes/en/cv/sampleCv'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnProfileRoute = EnProfileRouteImport.update({
+  id: '/en/profile',
+  path: '/en/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnHomeRoute = EnHomeRouteImport.update({
@@ -32,30 +38,34 @@ const EnCvSampleCvRoute = EnCvSampleCvRouteImport.update({
 export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/en/home': typeof EnHomeRoute
+  '/en/profile': typeof EnProfileRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/en/home': typeof EnHomeRoute
+  '/en/profile': typeof EnProfileRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/login': typeof LoginRoute
   '/en/home': typeof EnHomeRoute
+  '/en/profile': typeof EnProfileRoute
   '/en/cv/sampleCv': typeof EnCvSampleCvRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/login' | '/en/home' | '/en/cv/sampleCv'
+  fullPaths: '/login' | '/en/home' | '/en/profile' | '/en/cv/sampleCv'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/en/home' | '/en/cv/sampleCv'
-  id: '__root__' | '/login' | '/en/home' | '/en/cv/sampleCv'
+  to: '/login' | '/en/home' | '/en/profile' | '/en/cv/sampleCv'
+  id: '__root__' | '/login' | '/en/home' | '/en/profile' | '/en/cv/sampleCv'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   EnHomeRoute: typeof EnHomeRoute
+  EnProfileRoute: typeof EnProfileRoute
   EnCvSampleCvRoute: typeof EnCvSampleCvRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/profile': {
+      id: '/en/profile'
+      path: '/en/profile'
+      fullPath: '/en/profile'
+      preLoaderRoute: typeof EnProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/home': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   EnHomeRoute: EnHomeRoute,
+  EnProfileRoute: EnProfileRoute,
   EnCvSampleCvRoute: EnCvSampleCvRoute,
 }
 export const routeTree = rootRouteImport
