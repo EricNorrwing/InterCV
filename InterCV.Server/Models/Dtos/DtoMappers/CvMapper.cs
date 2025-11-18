@@ -1,4 +1,4 @@
-using InterCV.Server.Models.DTOs;
+using InterCV.Server.Models.Dtos.User;
 
 namespace InterCV.Server.Models.Dtos.DtoMappers;
 

@@ -1,11 +1,11 @@
 import type {UserProfile} from "../../models/UserModel.ts";
 
 interface userProps {
-    userProfile: UserProfile,
+    profile: UserProfile,
     
 }
-function ProfilePage({userProfile}: userProps) {
-    return <div>Welcome  {userProfile.firstName}!</div>
+function ProfilePage({profile}: userProps) {
+    return <div> Welcome {profile.firstName}!</div>
 }
 
 export default ProfilePage;

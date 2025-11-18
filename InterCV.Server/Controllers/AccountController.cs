@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Auth0.AspNetCore.Authentication;
+using InterCV.Server.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InterCV.Server.Controllers;
 
 [Route("account")] 
-public class AccountController(IConfiguration config) : Controller
+public class AccountController(IUserService users) : Controller
 {
     [HttpGet("login")] 
     public async Task Login()
@@ -27,41 +28,13 @@ public class AccountController(IConfiguration config) : Controller
 
     [Authorize]
     [HttpGet("profile")]
-    public IActionResult Profile()
+    public async Task<IActionResult> Profile()
     {
-        // TODO just checking custom claims, AI built this horrifying item
-        var allClaims = User.Claims
-            .Select(c => new 
-            { 
-                Type = c.Type, 
-                Value = c.Value 
-            })
-            .ToList();
+        var result = await users.GetCurrentUserAsync();
+        if (result == null)
+            return Unauthorized();
         
-        var rolesJson = User.Claims.FirstOrDefault(c => c.Type == "https://intercv.com/roles")?.Value;
-        string[] roles = Array.Empty<string>();
-        if (!string.IsNullOrEmpty(rolesJson))
-        {
-            try
-            {
-                roles = System.Text.Json.JsonSerializer.Deserialize<string[]>(rolesJson);
-            }
-            catch
-            {
-                roles = new string[] { rolesJson };
-            }
-        }
-
-        var profile = new
-        {
-            Name = User.Identity?.Name ?? "",
-            Email = User.FindFirstValue(ClaimTypes.Email) ?? "",
-            ProfileImage = User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value ?? "",
-            Roles = roles,
-            Claims = allClaims
-        };
-
-        return Ok(profile);
+        return Ok(result);
     }
 
     [Authorize]

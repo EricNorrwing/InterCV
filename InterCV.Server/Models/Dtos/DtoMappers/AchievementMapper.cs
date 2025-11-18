@@ -1,5 +1,4 @@
 using InterCV.Server.Models.CvModels.Experiences;
-using InterCV.Server.Models.DTOs;
 
 namespace InterCV.Server.Models.Dtos.DtoMappers;
 

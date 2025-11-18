@@ -1,6 +1,6 @@
-namespace InterCV.Server.Models.DTOs;
+namespace InterCV.Server.Models.Dtos.User;
 
-public class UserProfileDto
+public record UserProfileDto
 {
     public string? FirstName { get; set; }
     public string? LastName { get; set; }

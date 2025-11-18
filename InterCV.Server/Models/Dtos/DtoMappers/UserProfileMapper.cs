@@ -1,6 +1,7 @@
+using InterCV.Server.Models.Dtos.User;
 using InterCV.Server.Models.Users;
 
-namespace InterCV.Server.Models.DTOs.DtoMappers;
+namespace InterCV.Server.Models.Dtos.DtoMappers;
 
 public static class UserProfileMapper
 {

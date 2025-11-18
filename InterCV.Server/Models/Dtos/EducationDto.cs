@@ -1,6 +1,6 @@
-namespace InterCV.Server.Models.DTOs;
+namespace InterCV.Server.Models.Dtos;
 
-public class EducationDto
+public record EducationDto
 {
     public Guid Id { get; set; }
     public string? Institution { get; set; }

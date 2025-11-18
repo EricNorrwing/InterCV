@@ -1,8 +1,8 @@
-using InterCV.Server.Models.DTOs;
+using InterCV.Server.Models.Dtos.User;
 
 namespace InterCV.Server.Models.Dtos;
 
-public class CvDto
+public record CvDto
 {
     public Guid Id { get; set; }
     public string AboutMe { get; set; } = string.Empty;

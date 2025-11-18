@@ -1,6 +1,6 @@
-namespace InterCV.Server.Models.DTOs;
+namespace InterCV.Server.Models.Dtos;
 
-public class AchievementDto
+public record AchievementDto
 {
     public Guid Id { get; set; }
     public string Title { get; set; } = null!;
