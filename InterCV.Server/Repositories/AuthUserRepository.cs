@@ -6,13 +6,13 @@ namespace InterCV.Server.Repositories;
 
 public interface IAuthUserRepository
 {
-    Task<AuthUser?> GetBySubAsync(string sub);
+    Task<AuthUser?> GetAuthUserByIdAsync(string authId);
 }
 
 public class AuthUserRepository (InterCvDbContext db) : IAuthUserRepository
 {
-    public Task<AuthUser?> GetBySubAsync(string sub)
+    public async Task<AuthUser?> GetAuthUserByIdAsync(string authId)
     {
-        return db.AuthUsers.FirstOrDefaultAsync(a => a.AuthExternalId == sub);
+        return await db.AuthUsers.FirstOrDefaultAsync(a => a.AuthExternalId == authId);
     }
 }

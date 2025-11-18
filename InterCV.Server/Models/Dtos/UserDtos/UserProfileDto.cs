@@ -1,4 +1,4 @@
-namespace InterCV.Server.Models.Dtos.User;
+namespace InterCV.Server.Models.Dtos.UserDtos;
 
 public record UserProfileDto
 {
