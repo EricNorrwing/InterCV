@@ -5,7 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InterCV.Server.Repositories;
 
-public class CvRepository(InterCvDbContext dbContext, SettingsProvider settingsProvider)
+public interface ICvRepository
+{
+    Task<Cv?> GetSampleCvAsync();
+}
+
+public class CvRepository(InterCvDbContext dbContext, SettingsProvider settingsProvider) : ICvRepository
 {
     public async Task<Cv?> GetSampleCvAsync()
     {

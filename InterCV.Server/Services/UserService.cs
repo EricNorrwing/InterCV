@@ -6,12 +6,12 @@ namespace InterCV.Server.Services;
 
 public interface IUserService
 {
-    Task<UserDetailsDto?> GetCurrentUserAsync();
+    Task<UserDetailsDto?> GetCurrentUserAsync(); 
 }
     
 public class UserService(IUserRepository users, IAuthUserService authUser) : IUserService
 {
-
+    
     public async Task<UserDetailsDto?> GetCurrentUserAsync()
     {
         var userId = await authUser.GetCurrentUserId();
@@ -23,4 +23,5 @@ public class UserService(IUserRepository users, IAuthUserService authUser) : IUs
 
         return user.ToUserDetailsDto();
     }
+    
 }

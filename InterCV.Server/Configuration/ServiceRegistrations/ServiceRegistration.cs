@@ -31,13 +31,16 @@ public static class ServiceRegistration
         services.AddDbContexts(configuration) ;
         
         
+        services.AddScoped<ICvService, CvService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IAuthUserService, AuthUserService>();
         
-        services.AddScoped<CvService>();
-        services.AddScoped<UserService>();
-        
-        services.AddScoped<CvRepository>();
-        services.AddScoped<UserRepository>();
+        services.AddScoped<ICvRepository, CvRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IAuthUserRepository, AuthUserRepository>();
             
+        //TODO remove if different way to find user
+        services.AddHttpContextAccessor();
             
         services.AddEndpointsApiExplorer();
         //TODO Remove?

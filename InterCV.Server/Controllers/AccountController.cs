@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Auth0.AspNetCore.Authentication;
 using InterCV.Server.Services;
 using Microsoft.AspNetCore.Authentication;
@@ -30,6 +29,7 @@ public class AccountController(IUserService users) : Controller
     [HttpGet("profile")]
     public async Task<IActionResult> Profile()
     {
+        
         var result = await users.GetCurrentUserAsync();
         if (result == null)
             return Unauthorized();
