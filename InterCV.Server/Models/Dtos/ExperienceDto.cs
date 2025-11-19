@@ -1,8 +1,7 @@
-using InterCV.Server.Models.DTOs;
 
 namespace InterCV.Server.Models.Dtos;
 
-public class ExperienceDto
+public record ExperienceDto
 {
     public Guid Id { get; set; }
     public string Workplace { get; set; } = string.Empty;

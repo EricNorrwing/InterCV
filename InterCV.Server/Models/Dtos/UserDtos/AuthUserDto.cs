@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace InterCV.Server.Models.DTOs.User;
+namespace InterCV.Server.Models.Dtos.UserDtos;
 
 public record AuthUserDto
 {

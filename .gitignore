@@ -16,6 +16,7 @@ node_modules/
 dist/
 dist-ssr/
 *.local
+*/package-lock.json
 
 /intercv.client/obj/
 intercv.client/node_modules/

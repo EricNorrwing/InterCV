@@ -1,6 +1,6 @@
-namespace InterCV.Server.Models.DTOs;
+namespace InterCV.Server.Models.Dtos;
 
-public class ReferenceDto
+public record ReferenceDto
 {
     public Guid Id { get; set; }
     public string? FirstName { get; set; }

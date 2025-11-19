@@ -1,4 +1,4 @@
-using InterCV.Server.Models.DTOs;
+using InterCV.Server.Models.Dtos.UserDtos;
 
 namespace InterCV.Server.Models.Dtos.DtoMappers;
 
@@ -16,16 +16,17 @@ public static class CvMapper
                 LastName = cv.User.Profile.LastName,
                 Phone = cv.User.Profile.Phone,
                 LinkedInUrl = cv.User.Profile.LinkedInUrl,
-                DefaultTitle = cv.User.Profile.DefaultTitle
+                DefaultTitle = cv.User.Profile.DefaultTitle,
+                Email = cv.User.Auth.Email,
             },
             Experiences = cv.Experiences
-                .Select(ce => ce.Experience.ToDto()) // map Experience entity
+                .Select(ce => ce.Experience.ToDto()) 
                 .ToList(),
             Educations = cv.Educations
                 .Select(ce => ce.Education.ToDto())
                 .ToList(),
             Tags = cv.Tags
-                .Select(ct => ct.Tag.Name) // flatten to string
+                .Select(ct => ct.Tag.Name) 
                 .ToList()
         };
     }

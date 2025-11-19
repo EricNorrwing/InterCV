@@ -1,6 +1,4 @@
-using InterCV.Server.Models.CvModels.CvJunctionTables;
 using InterCV.Server.Models.CvModels.Educations;
-using InterCV.Server.Models.DTOs;
 
 namespace InterCV.Server.Models.Dtos.DtoMappers;
 

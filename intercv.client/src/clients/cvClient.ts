@@ -1,6 +1,6 @@
 import type {Cv} from "../models/Cv.ts";
 
-const baseUrl = "http://localhost:5172";
+const baseUrl = "https://localhost:7001";
 
 export async function getCv(path: string): Promise<Cv> {
     const response = await fetch(baseUrl + path);
