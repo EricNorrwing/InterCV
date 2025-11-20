@@ -2,7 +2,6 @@ using InterCV.Server.Configuration.Configurations;
 using InterCV.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace InterCV.Server.Controllers;
 
 [ApiController]

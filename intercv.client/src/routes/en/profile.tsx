@@ -21,8 +21,8 @@ function profileClient() {
 }
 
 export const Route = createFileRoute('/en/profile')({
-  component: ProfilePage profile={profileClient},
-  loader: () => <ProfilePage />,
+  component: <ProfilePage profile={profileClient}/>,
+  loader: () => {someloader},
   errorComponent: errorPage
 })
 

@@ -18,7 +18,7 @@ public class AccountController(IUserService users) : Controller
             .WithRedirectUri("https://localhost:60965/en/home")
             .WithScope("openid profile email")
             .Build();
-
+        
         await HttpContext.ChallengeAsync(
             Auth0Constants.AuthenticationScheme,
             authenticationProperties
@@ -29,12 +29,36 @@ public class AccountController(IUserService users) : Controller
     [HttpGet("profile")]
     public async Task<IActionResult> Profile()
     {
-        
+        //TODO Currently prints ID's, remove it
         var result = await users.GetCurrentUserAsync();
         if (result == null)
             return Unauthorized();
         
         return Ok(result);
+    }
+    
+    [Authorize]
+    [HttpGet("debug")]
+    public async Task<IActionResult> Debug()
+    {
+        var user = HttpContext.User;
+
+        var claims = user.Claims
+            .Select(c => new { c.Type, c.Value })
+            .ToList();
+
+        var idToken = await HttpContext.GetTokenAsync("id_token");
+        var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+        return Ok(new
+        {
+            Claims = claims,
+            IdentityName = user.Identity?.Name,
+            AuthenticationType = user.Identity?.AuthenticationType,
+            IsAuthenticated = user.Identity?.IsAuthenticated,
+            IdToken = idToken,
+            AccessToken = accessToken
+        });
     }
 
     [Authorize]
