@@ -1,4 +1,5 @@
 using Auth0.AspNetCore.Authentication;
+using InterCV.Server.Models.Dtos.DtoMappers;
 using InterCV.Server.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -32,7 +33,7 @@ public class AccountController(IUserService users) : Controller
         //TODO Currently prints ID's, remove it
         var result = await users.GetCurrentUserAsync();
         if (result == null)
-            return Unauthorized();
+            return NotFound();
         
         return Ok(result);
     }
@@ -60,6 +61,8 @@ public class AccountController(IUserService users) : Controller
             AccessToken = accessToken
         });
     }
+    
+    
 
     [Authorize]
     [HttpGet("logout")]
