@@ -17,14 +17,14 @@ public interface IUserService
     Task<User> AutoCreateUserIfNewAsync();
 }
     
-public class UserService(IUserRepository users, IAuthUserService authUser) : IUserService
+public class UserService(IUserRepository usersRepo, IAuthUserService authUser, IAuthUserRepository authRepo) : IUserService
 {
     
     public async Task<UserDetailsDto?> GetCurrentUserAsync()
     {
         var userId = await authUser.GetCurrentUserId();
 
-        var user = await users.GetUserByIdAsync(userId);
+        var user = await usersRepo.GetUserByIdAsync(userId);
 
         return user.ToUserDetailsDto();
         
@@ -33,28 +33,33 @@ public class UserService(IUserRepository users, IAuthUserService authUser) : IUs
 
     public async Task<User> GetUserByIdAsync(Guid userId)
     {
-        return await users.GetUserByIdAsync(userId);
+        return await usersRepo.GetUserByIdAsync(userId);
     }
 
     public async Task<User> AutoCreateUserIfNewAsync()
     {
         var principal = authUser.GetPrincipalFromCurrentUser();
-        
-        var existingUser = await users.GetUserByEmailAsync(authUser.GetEmailFromCurrentUser());
+
+        var email = authUser.GetEmailFromCurrentUser();
+        //TODO global error handling
+        if (email == null)
+            throw new Exception("Logged-in user has no email claim.");
+        //TODO same here
+        var existingUser = await usersRepo.GetUserByEmailAsync(email);
         if (existingUser != null)
             return existingUser;
         
-        var newAuth = CreateAuthUser(principal);
-        newAuth = await users.CreateAuthUserAsync(newAuth);
+        var authEntity = CreateAuthUser(principal);
+        authEntity = await authRepo.CreateAuthUserAsync(authEntity);
         
-        var newUser = CreateUser(principal);
-        newUser.Id = newAuth.UserId; 
+        var user = CreateUser(principal);
+        user.Id = authEntity.UserId;
+        user.Auth = authEntity;
+        
+        user = await usersRepo.CreateUserAsync(user);
 
-        newUser = await users.CreateUserAsync(newUser);
-
-        return newUser;
+        return user;
     }
-    
     
     private static User CreateUser(ClaimsPrincipal principal)
     {
@@ -72,7 +77,7 @@ public class UserService(IUserRepository users, IAuthUserService authUser) : IUs
         return new UserProfile
         {
             FirstName = principal.FindFirstValue(ClaimTypes.GivenName) ?? "",
-            LastName  = principal.FindFirstValue(ClaimTypes.Surname) ?? "",
+            LastName = principal.FindFirstValue(ClaimTypes.Surname) ?? "",
             Phone = "",
             LinkedInUrl = "",
             PictureUrl = principal.FindFirstValue("picture") ?? "",

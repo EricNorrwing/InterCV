@@ -10,9 +10,8 @@ public interface IAuthUserService
     string GetExternalIdFromCurrentUser();
     string? GetEmailFromCurrentUser();
 }
-
-public class AuthUserService(IHttpContextAccessor httpContext, IAuthUserRepository authRepo)
-    : IAuthUserService
+//Todo global error handling
+public class AuthUserService(IHttpContextAccessor httpContext, IAuthUserRepository authRepo) : IAuthUserService
 {
     public ClaimsPrincipal GetPrincipalFromCurrentUser()
     {
