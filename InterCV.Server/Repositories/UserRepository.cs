@@ -8,24 +8,30 @@ namespace InterCV.Server.Repositories;
 public interface IUserRepository
 {
     Task<User?> GetUserByIdAsync(Guid userId);
-    Task<EntityEntry<User>> AddUserAsync(User user);
+    Task<User?> GetUserByEmailAsync(string email);
+    Task<User> CreateUserAsync(User user);
 }
 
-public class UserRepository(InterCvDbContext dbContext) : IUserRepository
+public class UserRepository(InterCvDbContext db) : IUserRepository
 {
-    public async Task<EntityEntry<User>> AddUserAsync(User user)
-    {
-        return await dbContext.Users.AddAsync(user);
-    }
-
-    public async Task<User?> GetUserByIdAsync(Guid userId)
-    {
-        return await dbContext.Users
+    public Task<User?> GetUserByIdAsync(Guid userId)
+        => db.Users
             .Include(u => u.Auth)
             .Include(u => u.Profile)
             .Include(u => u.Cvs)
             .Include(u => u.Experiences)
             .Include(u => u.Educations)
             .FirstOrDefaultAsync(u => u.Id == userId);
+
+    public Task<User?> GetUserByEmailAsync(string email)
+        => db.Users
+            .Include(u => u.Auth)
+            .FirstOrDefaultAsync(u => u.Auth.Email == email);
+
+    public async Task<User> CreateUserAsync(User user)
+    {
+        db.Users.Add(user);
+        await db.SaveChangesAsync();
+        return user;
     }
 }

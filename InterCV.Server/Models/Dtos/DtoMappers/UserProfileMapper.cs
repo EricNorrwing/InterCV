@@ -13,6 +13,7 @@ public static class UserProfileMapper
             LastName = profile.LastName,
             Phone = profile.Phone,
             LinkedInUrl = profile.LinkedInUrl,
+            PictureUrl = profile.PictureUrl,
             DefaultTitle = profile.DefaultTitle,
         };
     }

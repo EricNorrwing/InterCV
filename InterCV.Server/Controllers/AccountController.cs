@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InterCV.Server.Controllers;
 
 [Route("account")] 
-public class AccountController(IUserService users) : Controller
+public class AccountController(IUserService users, IAuthUserService authUserService) : Controller
 {
     [HttpGet("login")] 
     public async Task Login()
@@ -31,11 +31,11 @@ public class AccountController(IUserService users) : Controller
     public async Task<IActionResult> Profile()
     {
         //TODO Currently prints ID's, remove it
-        var result = await users.GetCurrentUserAsync();
+        var result = authUserService.GetPrincipalFromCurrentUser();
         if (result == null)
             return NotFound();
-        
-        return Ok(result);
+        Console.WriteLine(result);
+        return Ok();
     }
     
     [Authorize]
