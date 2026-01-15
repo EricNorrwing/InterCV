@@ -34,7 +34,7 @@ public class AccountController(IUserService users, IAuthUserService authUserServ
         var result = authUserService.GetPrincipalFromCurrentUser();
         if (result == null)
             return NotFound();
-        Console.WriteLine(result);
+        Console.WriteLine(result.Claims);
         return Ok();
     }
     

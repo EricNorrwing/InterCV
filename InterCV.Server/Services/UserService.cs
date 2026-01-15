@@ -14,7 +14,7 @@ public interface IUserService
     Task<UserDetailsDto?> GetCurrentUserAsync(); 
     Task<User> GetUserByIdAsync(Guid userId);
 
-    Task<User> AutoCreateUserIfNewAsync();
+    Task<User> AutoCreateUserIfNewUserAsync();
 }
     
 public class UserService(IUserRepository usersRepo, IAuthUserService authUser, IAuthUserRepository authRepo) : IUserService
@@ -36,7 +36,7 @@ public class UserService(IUserRepository usersRepo, IAuthUserService authUser, I
         return await usersRepo.GetUserByIdAsync(userId);
     }
 
-    public async Task<User> AutoCreateUserIfNewAsync()
+    public async Task<User> AutoCreateUserIfNewUserAsync()
     {
         var principal = authUser.GetPrincipalFromCurrentUser();
 

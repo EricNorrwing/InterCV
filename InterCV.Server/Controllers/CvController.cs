@@ -6,7 +6,7 @@ namespace InterCV.Server.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CvController(CvService cvService, SettingsProvider settingsProvider) : ControllerBase
+public class CvController(ICvService cvService, SettingsProvider settingsProvider) : ControllerBase
 {
     
     [HttpGet("sample-cv")]
