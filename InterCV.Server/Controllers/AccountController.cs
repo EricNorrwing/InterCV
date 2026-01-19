@@ -1,22 +1,27 @@
 using Auth0.AspNetCore.Authentication;
-using InterCV.Server.Models.Dtos.DtoMappers;
+using InterCV.Server.Configuration;
 using InterCV.Server.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace InterCV.Server.Controllers;
 
 [Route("account")] 
-public class AccountController(IUserService users, IAuthUserService authUserService) : Controller
+public class AccountController(IUserService users, IAuthUserService authUserService, IOptions<ApplicationSettings> appSettings) : Controller
 {
+    private readonly ApplicationSettings _appSettings = appSettings.Value;
+    
     [HttpGet("login")] 
     public async Task Login()
     {
+        var redirectUri = $"{_appSettings.BaseUrl}";
+        
         //TODO update to gather other information we might need later for example to link accounts.
         var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
-            .WithRedirectUri("https://localhost:60965/en/home")
+            .WithRedirectUri(redirectUri)
             .WithScope("openid profile email")
             .Build();
         
@@ -26,6 +31,7 @@ public class AccountController(IUserService users, IAuthUserService authUserServ
         );
     }
 
+    /*
     [Authorize]
     [HttpGet("profile")]
     public async Task<IActionResult> Profile()
@@ -35,7 +41,17 @@ public class AccountController(IUserService users, IAuthUserService authUserServ
         if (result == null)
             return NotFound();
         Console.WriteLine(result.Claims);
-        return Ok();
+        return Ok("hello ur working etc!");
+    }
+    */
+    [Authorize]
+    [HttpGet("profile")]
+    public IActionResult Profile()
+    {
+        Console.WriteLine("hello you're passing this url");
+
+        // Redirect to the next page
+        return Redirect("/en/home");
     }
     
     [Authorize]

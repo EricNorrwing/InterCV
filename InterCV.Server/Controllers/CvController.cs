@@ -6,13 +6,13 @@ namespace InterCV.Server.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CvController(ICvService cvService, SettingsProvider settingsProvider) : ControllerBase
+public class CvController(ICvService cvService) : ControllerBase
 {
     
     [HttpGet("sample-cv")]
     public async Task<IActionResult> GetSampleCv()
     {
-        Console.WriteLine("Fetching sample Cv with ID: " + settingsProvider.ExposeSettings("SampleCvId"));
+        Console.WriteLine("Fetching sample Cv with ID: " );
         var dto = await cvService.GetSampleCvAsync();
         if (dto == null) return NotFound("Sample CV not found.");
 

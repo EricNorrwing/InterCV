@@ -15,9 +15,9 @@ public static class ServiceRegistration
     {
         
         services.AddControllers();
-        services.AddSingleton<SettingsProvider>();
         
-        //TODO proper security
+        
+        //TODO proper CORS security
         services.AddCorsSettings();
 
         services.AddAuth0WebAppAuthentication(options =>
@@ -27,6 +27,11 @@ public static class ServiceRegistration
         }); 
         services.AddAuthorization();
         
+        services
+            .AddOptions<ApplicationSettings>()
+            .Bind(configuration.GetSection("Application"))
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
         
         services.AddDbContexts(configuration) ;
         

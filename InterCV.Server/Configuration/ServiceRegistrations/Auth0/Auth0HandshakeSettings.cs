@@ -14,7 +14,7 @@ public static class Auth0HandshakeSettings
         {
             opts.Events = new OpenIdConnectEvents
             {
-                OnTokenValidated = async ctx =>
+                OnAuthorizationCodeReceived = async ctx =>
                 {
                     var userService = ctx.HttpContext.RequestServices.GetRequiredService<IUserService>();
                     await userService.AutoCreateUserIfNewUserAsync();

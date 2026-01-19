@@ -10,13 +10,13 @@ public interface ICvRepository
     Task<Cv?> GetSampleCvAsync();
 }
 
-public class CvRepository(InterCvDbContext dbContext, SettingsProvider settingsProvider) : ICvRepository
+public class CvRepository(InterCvDbContext dbContext) : ICvRepository
 {
     public async Task<Cv?> GetSampleCvAsync()
     {
-        string sampleCvId = settingsProvider.ExposeSettings("SampleCvId") ?? string.Empty;
+        //TODO
 
-        if (string.IsNullOrEmpty(sampleCvId))
+        if (string.IsNullOrEmpty("sampleCvId"))
             return null;
 
         return await dbContext.Cvs
@@ -34,7 +34,7 @@ public class CvRepository(InterCvDbContext dbContext, SettingsProvider settingsP
             .ThenInclude(ce => ce.Education)
             .Include(c => c.Tags)
             .ThenInclude(ct => ct.Tag)
-            .FirstOrDefaultAsync(c => c.Id.ToString() == sampleCvId);
+            .FirstOrDefaultAsync(c => c.Id.ToString() == "sampleCvId");
     }
     
 }
