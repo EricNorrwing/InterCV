@@ -72,6 +72,7 @@ public class UserService(IUserRepository usersRepo, IAuthUserService authUser, I
         };
     }
     
+    
     private static UserProfile CreateUserProfile(ClaimsPrincipal principal)
     {
         return new UserProfile

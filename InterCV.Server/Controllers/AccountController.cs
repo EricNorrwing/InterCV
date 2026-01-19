@@ -17,7 +17,7 @@ public class AccountController(IUserService users, IAuthUserService authUserServ
     [HttpGet("login")] 
     public async Task Login()
     {
-        var redirectUri = $"{_appSettings.BaseUrl}";
+        var redirectUri = $"{_appSettings.BaseUrl}/account/verifyUser";
         
         //TODO update to gather other information we might need later for example to link accounts.
         var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
@@ -45,13 +45,14 @@ public class AccountController(IUserService users, IAuthUserService authUserServ
     }
     */
     [Authorize]
-    [HttpGet("profile")]
-    public IActionResult Profile()
+    [HttpGet("verifyUser")]
+    public async Task<IActionResult> Profile()
     {
-        Console.WriteLine("hello you're passing this url");
+        Console.WriteLine("You passed the registration page");
+        
+        await users.AutoCreateUserIfNewUserAsync();
 
-        // Redirect to the next page
-        return Redirect("/en/home");
+        return Redirect("/account/debug");
     }
     
     [Authorize]

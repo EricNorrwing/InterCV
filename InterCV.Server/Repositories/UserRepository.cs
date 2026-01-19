@@ -10,6 +10,7 @@ public interface IUserRepository
     Task<User?> GetUserByIdAsync(Guid userId);
     Task<User?> GetUserByEmailAsync(string email);
     Task<User> CreateUserAsync(User user);
+
 }
 
 public class UserRepository(InterCvDbContext db) : IUserRepository
@@ -34,4 +35,5 @@ public class UserRepository(InterCvDbContext db) : IUserRepository
         await db.SaveChangesAsync();
         return user;
     }
+    
 }
