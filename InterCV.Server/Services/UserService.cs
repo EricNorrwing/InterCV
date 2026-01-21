@@ -40,25 +40,24 @@ public class UserService(IUserRepository usersRepo, IAuthUserService authUser, I
     {
         var principal = authUser.GetPrincipalFromCurrentUser();
 
-        var email = authUser.GetEmailFromCurrentUser();
-        //TODO global error handling
-        if (email == null)
-            throw new Exception("Logged-in user has no email claim.");
-        //TODO same here
+        var email = authUser.GetEmailFromCurrentUser()
+                    ?? throw new Exception("Logged-in user has no email claim.");
+
         var existingUser = await usersRepo.GetUserByEmailAsync(email);
         if (existingUser != null)
             return existingUser;
-        
-        var authEntity = CreateAuthUser(principal);
-        authEntity = await authRepo.CreateAuthUserAsync(authEntity);
-        
-        var user = CreateUser(principal);
-        user.Id = authEntity.UserId;
-        user.Auth = authEntity;
-        
-        user = await usersRepo.CreateUserAsync(user);
 
-        return user;
+        var userId = Guid.NewGuid();
+
+        var user = CreateUser(principal);
+        user.Id = userId;
+
+        var authEntity = CreateAuthUser(principal);
+        authEntity.UserId = userId;
+
+        user.Auth = authEntity;
+
+        return await usersRepo.CreateUserAsync(user);
     }
     
     private static User CreateUser(ClaimsPrincipal principal)
@@ -88,6 +87,7 @@ public class UserService(IUserRepository usersRepo, IAuthUserService authUser, I
 
     private static AuthUser CreateAuthUser(ClaimsPrincipal principal)
     {
+        //TODO returns true if it manages to parse but not related to whats in the field?
         bool emailVerified = bool.TryParse(
             principal.FindFirstValue("email_verified"),
             out var verified
