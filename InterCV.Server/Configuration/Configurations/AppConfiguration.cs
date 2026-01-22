@@ -4,8 +4,7 @@ public static class AppConfiguration
 {
     public static WebApplication UseAppConfiguration(this WebApplication app)
     {
-        app.UseDefaultFiles();
-        app.UseStaticFiles();
+        
 
         if (app.Environment.IsDevelopment())
         {
@@ -21,7 +20,6 @@ public static class AppConfiguration
         app.UseAuthorization();
 
         app.MapControllers();
-        app.MapFallbackToFile("/index.html");
 
         return app;
     }
