@@ -4,6 +4,7 @@ using InterCV.Server.Configuration.DbContextsConfiguration;
 using InterCV.Server.Configuration.ServiceRegistrations.Cors;
 using InterCV.Server.Repositories;
 using InterCV.Server.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 
 namespace InterCV.Server.Configuration.ServiceRegistrations;
@@ -14,10 +15,9 @@ public static class ServiceRegistration
     {
         
         services.AddControllers();
-        services.AddSingleton<SettingsProvider>();
         
         
-        //TODO proper security
+        //TODO proper CORS security
         services.AddCorsSettings();
 
         services.AddAuth0WebAppAuthentication(options =>
@@ -27,6 +27,11 @@ public static class ServiceRegistration
         }); 
         services.AddAuthorization();
         
+        services
+            .AddOptions<ApplicationSettings>()
+            .Bind(configuration.GetSection("Application"))
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
         
         services.AddDbContexts(configuration) ;
         

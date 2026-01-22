@@ -1,9 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using InterCV.Server.Models.CvModels;
 using InterCV.Server.Models.CvModels.Educations;
 using InterCV.Server.Models.CvModels.Experiences;
-using InterCV.Server.Models.CvModels.Experiences.References;
 
 namespace InterCV.Server.Models.Users;
 

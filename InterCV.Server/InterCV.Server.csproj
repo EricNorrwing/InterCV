@@ -41,4 +41,8 @@
     </ProjectReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\ServiceRegistrations\Auth0\" />
+  </ItemGroup>
+
 </Project>

@@ -126,7 +126,7 @@ public class SampleCv
                 DescriptionShort = "A higher vocational education focused on backend and fullstack development using Java, Spring Boot, and modern frontend frameworks.",
                 StartDate = new DateTime(2023, 1, 1),
                 EndDate = new DateTime(2025, 1, 1),
-                Verification = "http://url2993.trueoriginal.com/ls/click?upn=u001..."
+                Verification = "https://true.sti.se/examensbevis-275811-6425/?zone=truecrt&modal=1&lang=se"
             },
             new Education
             {
