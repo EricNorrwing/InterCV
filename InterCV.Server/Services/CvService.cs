@@ -7,15 +7,15 @@ namespace InterCV.Server.Services;
 
 public interface ICvService
 {
-    Task<CvDto?> GetSampleCvAsync();
+    Task<CvDto?> GetCvAsync();
 }
 
 public class CvService (ICvRepository cvRepo) : ICvService
 {
     //TODO Fix
-    public async Task<CvDto?> GetSampleCvAsync()
+    public async Task<CvDto?> GetCvAsync()
     {
-        var cv = await cvRepo.GetSampleCvAsync();
+        var cv = await cvRepo.GetCvAsync();
 
         return cv.ToDto();
     }

@@ -7,15 +7,13 @@ namespace InterCV.Server.Repositories;
 
 public interface ICvRepository
 {
-    Task<Cv?> GetSampleCvAsync();
+    Task<Cv?> GetCvAsync();
 }
 
 public class CvRepository(InterCvDbContext dbContext) : ICvRepository
 {
-    public async Task<Cv?> GetSampleCvAsync()
+    public async Task<Cv?> GetCvAsync()
     {
-        //TODO
-
         if (string.IsNullOrEmpty("sampleCvId"))
             return null;
 
